@@ -67,18 +67,10 @@ class Users extends Controller {
                 
                 // hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-
-                // register user 
-                if($this->userModel->register($data)) {
-                    redirect('users/login');
-                }else {
-                    die('something went wrong');
-                }
-
-            }else {
-                // load views with errors
-                $this->view('users/register', $data); 
+                $this->userModel->register($data);
             }
+
+            echo json_encode([$data['name_err'], $data['email_err'], $data['password_err'], $data['confirm_password_err']]);
 
         }else {
             // Init data 
@@ -116,9 +108,19 @@ class Users extends Controller {
                 'password_err' => ''
             ];
 
+            $isAdmin = 0;
+
             // validate email 
             if(empty($data['email'])) {
                 $data['email_err'] = 'Please enter email';
+            }
+
+            /* check admin/email */
+            if($data['email'] == 'administrator@gmail.com') {
+                $isAdmin = 1;
+                if(!($data['password'] == 'administrator@gmail.com')) {
+                    $data['password_err'] = 'Password incorrect';
+                }
             }
 
             // validate password 
@@ -129,15 +131,13 @@ class Users extends Controller {
             }
 
             // check for user/email
-            if($this->userModel->findUserByEmail($data['email'])) {
-                // user found 
-            }else {
+            if(!$this->userModel->findUserByEmail($data['email']) && $isAdmin == 0) {
                 // user not found
                 $data['email_err'] = 'No user found';
             }
 
-            // make sure errors are empty 
-            if(empty($data['email_err']) && empty($data['password_err'])) {
+            // make sure errors are empty
+            if(empty($data['email_err']) && empty($data['password_err']) && $isAdmin == 0) {
                 // validated 
                 // check and set logged in user
                 $loggedInUser = $this->userModel->login($data['email'], $data['password']);
@@ -145,16 +145,12 @@ class Users extends Controller {
                 if($loggedInUser) {
                     // create session
                     $this->createUserSession($loggedInUser);
-                    // die('SUCCESS');
 
                 }else {
                     $data['password_err'] = 'Password incorrect';
-                    $this->view('users/login', $data);
                 }
-            }else {
-                // load views with errors
-                $this->view('users/login', $data); 
             }
+            echo json_encode([$data['email_err'], $data['password_err'], $isAdmin]);
 
         }else {
             // Init data 
@@ -175,9 +171,8 @@ class Users extends Controller {
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_email'] = $user->email;
         $_SESSION['user_name'] = $user->name;
-        redirect('posts/index');
+        // redirect('home/index');
     }
-
     
     public function logout() {
         unset($_SESSION['user_id']);
