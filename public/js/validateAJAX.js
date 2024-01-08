@@ -26,7 +26,7 @@ if(loginForm){
                 }
 
                 if(data[0] != ''){
-                    loginEmailErr.textContent = data[0];
+                    loginEmailErr.textContent = data[0]; 
                 }
                 if(data[1] != ''){
                     loginPasswordErr.textContent = data[1];
