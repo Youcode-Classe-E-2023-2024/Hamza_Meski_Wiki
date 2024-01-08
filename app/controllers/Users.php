@@ -186,18 +186,16 @@ class Users extends Controller {
     public function logout() {
         if(isset($_SESSION['author'])) {
             unset($_SESSION['author']);
-            unset($_SESSION['user_id']);
-            unset($_SESSION['user_email']);
-            unset($_SESSION['user_name']);
         }
         if(isset($_SESSION['admin'])) {
             unset($_SESSION['admin']);
-            unset($_SESSION['user_id']);
-            unset($_SESSION['user_email']);
-            unset($_SESSION['user_name']);
         }
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user_name']);
         session_destroy();
-        redirect('posts/index');
+
+        redirect('pages/index');
     }
 
 }

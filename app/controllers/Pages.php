@@ -5,9 +5,13 @@ class Pages extends Controller {
     }
 
     public function index() {
-        // if(isLoggedIn()) {
-        //     redirect('posts/index');
-        // }
+        if(isLoggedIn()) {
+            // redirect('posts/index');
+            echo '<pre>';
+            print_r($_SESSION);
+            echo '</pre>';
+            die('You are logged');
+        }
 
         $data = [
             'title' => 'Share Posts', 
