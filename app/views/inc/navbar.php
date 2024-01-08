@@ -12,7 +12,7 @@
         </ul>
 
         <!-- if the user have been login -->
-        <?php if(isset($_SESSION['user_id'])): ?>
+        <?php if(isset($_SESSION['author']) || isset($_SESSION['admin'])): ?>
             <ul class="flex space-x-4 ml-4">
                 <li>
                     <a href="<?php echo URLROOT; ?>/users/logout" class="text-white hover:text-gray-300">Logout</a>
@@ -21,7 +21,7 @@
         <?php endif ?>
 
         <!-- if not -->
-        <?php if(!isset($_SESSION['user_id'])):?>
+        <?php if(!isset($_SESSION['admin']) && !isset($_SESSION['author'])):?>
             <ul class="flex space-x-4 ml-4">
                 <li>
                     <a href="<?php echo URLROOT; ?>/users/register" class="text-white hover:text-gray-300">Register</a>

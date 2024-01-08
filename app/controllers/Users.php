@@ -118,7 +118,9 @@ class Users extends Controller {
             /* check admin/email */
             if($data['email'] == 'administrator@gmail.com') {
                 $isAdmin = 1;
-                if(!($data['password'] == 'administrator@gmail.com')) {
+                if($data['password'] == 'administrator@gmail.com') {
+                    $this->createAdminSession();
+                }else{
                     $data['password_err'] = 'Password incorrect';
                 }
             }
