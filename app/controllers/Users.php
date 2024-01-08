@@ -122,7 +122,7 @@ class Users extends Controller {
                     $data['password_err'] = 'Password incorrect';
                 }
             }
-            
+
             // validate password 
             if(empty($data['password'])) {
                 $data['password_err'] = 'Please enter password';
