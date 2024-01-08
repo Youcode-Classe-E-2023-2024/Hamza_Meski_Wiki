@@ -118,7 +118,9 @@ class Users extends Controller {
             /* check admin/email */
             if($data['email'] == 'administrator@gmail.com') {
                 $isAdmin = 1;
-                if(!($data['password'] == 'administrator@gmail.com')) {
+                if($data['password'] == 'administrator@gmail.com') {
+                    $this->createAdminSession();
+                }else {
                     $data['password_err'] = 'Password incorrect';
                 }
             }
@@ -151,6 +153,10 @@ class Users extends Controller {
                 }
             }
             echo json_encode([$data['email_err'], $data['password_err'], $isAdmin]);
+            // echo '<pre>';
+            // print_r($_SESSION);
+            // echo '</pre>';
+            // die();
 
         }else {
             // Init data 
@@ -173,11 +179,22 @@ class Users extends Controller {
         $_SESSION['user_name'] = $user->name;
         // redirect('home/index');
     }
+
+    public function  createAdminSession() {
+        $_SESSION['admin'] = 'admin';
+    }
     
     public function logout() {
-        unset($_SESSION['user_id']);
-        unset($_SESSION['user_email']);
-        unset($_SESSION['user_name']);
+        if(isset($_SESSION['user_id'])) {
+            unset($_SESSION['user_id']);
+            unset($_SESSION['user_email']);
+            unset($_SESSION['user_name']);
+        }
+        
+        if(isset($_SESSION['admin'])) {
+            unset($_SESSION['admin']);
+        }
+        
         session_destroy();
         redirect('posts/index');
     }
