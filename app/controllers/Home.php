@@ -2,17 +2,16 @@
 class Home extends Controller {
     public $postModel;
 
-    public function index() {
-        $this->view('home/index');
+    public function __construct() {
         $this->postModel = $this->model('Post');
     }
 
+    public function index() {
+        $data = $this->postModel->getPosts();
+        $this->view('home/index', $data);
+    }
+
     public function postSection() {
-        $posts = $this->postModel->getPosts();
-        echo '<pre>';
-        print_r($posts);
-        echo '</pre>';
-        die();
         // $this->view('home/postSection', $data);
     }
 }
