@@ -4,7 +4,7 @@
     <div class="flex">
         <ul class="flex space-x-4">
             <li>
-                <a href="<?php echo URLROOT; ?>/pages/index" class="text-white hover:text-gray-300">Home</a>
+                <a href="<?php echo URLROOT; ?>/home/index" class="text-white hover:text-gray-300">Home</a>
             </li>
         </ul>
 
