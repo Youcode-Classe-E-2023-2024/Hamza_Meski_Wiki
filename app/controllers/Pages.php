@@ -26,7 +26,11 @@ class Pages extends Controller {
     }
 
     public function categories() {
-        $this->view('pages/categories');
+        $data = [
+            'title' => 'Welcome about', 
+            'description' => 'App to share Posts with other users'
+        ];
+        $this->view('pages/categories', $data);
     }
 }
 ?>
