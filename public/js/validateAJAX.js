@@ -19,7 +19,7 @@ if(loginForm){
                 loginEmailErr.textContent = '';
                 loginPasswordErr.textContent = '';
                 if(data[0] == '' && data[1] == '' && data[2] == 0){
-                    location.href = URLROOT + '/pages/index';
+                    location.href = URLROOT + '/home/index';
                 }
                 if(data[0] == '' && data[1] == '' && data[2] == 1){
                     location.href = URLROOT + '/admin/index';
