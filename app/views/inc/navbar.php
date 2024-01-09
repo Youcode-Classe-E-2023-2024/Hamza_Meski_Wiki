@@ -6,9 +6,6 @@
             <li>
                 <a href="<?php echo URLROOT; ?>/pages/index" class="text-white hover:text-gray-300">Home</a>
             </li>
-            <li>
-                <a href="<?php echo URLROOT; ?>/pages/about" class="text-white hover:text-gray-300">About</a>
-            </li>
         </ul>
 
         <!-- if the user have been login -->
@@ -19,6 +16,9 @@
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">My Wikies</a>
+                </li>
+                <li>
+                    <a href="<?php echo URLROOT; ?>/pages/about" class="text-white hover:text-gray-300">About</a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/users/logout" class="text-white hover:text-gray-300">Logout</a>
@@ -36,6 +36,9 @@
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">My Wikies</a>
+                </li>
+                <li>
+                    <a href="<?php echo URLROOT; ?>/pages/about" class="text-white hover:text-gray-300">About</a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/users/logout" class="text-white hover:text-gray-300">Logout</a>
