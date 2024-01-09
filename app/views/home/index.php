@@ -10,7 +10,7 @@
   Feel free to play with this example if you're just learning, or trash it and
   start from scratch if you know enough to be dangerous. Have fun!
 -->
-<div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+<div id="home-index" class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
   <div class="m-10 flex flex-col items-center mx-auto max-w-screen-lg">
     <!-- search bar component -->
     <div class="flex w-[60%] mx-10 rounded bg-white">
@@ -24,13 +24,8 @@
     <div class="header flex w-full justify-center">
       <h2 class="font-black pb-10 mb-20 text-5xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">Dernier articles</h2>
     </div>
-    <div class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-      
-    <!-- <?php 
-    echo '<pre>'; 
-    print_r($data);
-    echo '</pre>'
-    ?> -->
+    <form action="<?php echo URLROOT ?>" method="post" class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <input type="hidden" name="post" value="<?php echo $post; ?>">
       <!--  -->
       <?php foreach($data as $post): ?>
       <div class="bg-white w-full rounded-lg shadow-md flex flex-col transition-all overflow-hidden hover:shadow-2xl">
@@ -43,11 +38,11 @@
               </svg>
               <?php echo $post->created_at; ?>
             </span>
-            <span>
+            <button type="submit">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
               </svg>
-            </span>
+            </button>
           </div>
           <h3 class="mb-4 font-semibold  text-2xl"><a href="" class="transition-all text-blue-900 hover:text-blue-600"><?php echo $post->title; ?></a></h3>
           <p class="text-sky-800 text-sm mb-0">
@@ -64,7 +59,7 @@
       <?php endforeach; ?>
       <!--  -->
 
-    </div>
+      </form>
   </div>
 </div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

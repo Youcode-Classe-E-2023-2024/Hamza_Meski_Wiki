@@ -12,6 +12,6 @@ class Home extends Controller {
     }
 
     public function postSection() {
-        // $this->view('home/postSection', $data);
+        $this->view('home/postSection');
     }
 }
