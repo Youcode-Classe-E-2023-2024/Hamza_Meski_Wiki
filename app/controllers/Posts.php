@@ -10,11 +10,18 @@ class Posts extends Controller {
         $this->view('Posts/index');
     }
 
-    // public
     public function getPostsByUserId() {
-        $userId = $_SESSION['user_id']; 
-        $posts = $this->postModel->getPostsByUserId($userId);
+        $posts = $this->postModel->getPostsByUserId($_SESSION['user_id']);
         echo json_encode($posts);
+    }
+
+    public function addPostSection() {
+        $this->postModel->view('posts/addPostSection');
+    }
+
+    public function addPost() {
+
+        $this->postModel->addPost($_SESSION['user_id'] );
     }
 }
 ?>
