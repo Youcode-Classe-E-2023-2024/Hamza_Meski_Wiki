@@ -11,7 +11,7 @@ class Home extends Controller {
         $this->categoryModel = $this->model('Category');
         $this->tagModel = $this->model('Tag');
     }
-
+ 
     public function index() {
         $data = $this->postModel->getPosts();
         $this->view('home/index', $data);

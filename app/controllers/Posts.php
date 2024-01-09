@@ -14,9 +14,7 @@ class Posts extends Controller {
     public function getPostsByUserId() {
         $userId = $_SESSION['user_id']; 
         $posts = $this->postModel->getPostsByUserId($userId);
-        echo '<pre>'; 
-        print_r($posts); 
-        echo '</pre>';
+        echo json_encode($posts);
     }
 }
 ?>
