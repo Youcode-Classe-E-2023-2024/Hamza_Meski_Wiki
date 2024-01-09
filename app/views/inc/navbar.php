@@ -15,6 +15,12 @@
         <?php if(isset($_SESSION['author'])): ?>
             <ul class="flex space-x-4 ml-4">
                 <li>
+                    <a href="<?php echo URLROOT; ?>/users/logout" class="text-white hover:text-gray-300">Categories</a>
+                </li>
+                <li>
+                    <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">My Wikies</a>
+                </li>
+                <li>
                     <a href="<?php echo URLROOT; ?>/users/logout" class="text-white hover:text-gray-300">Logout</a>
                 </li>
             </ul>
@@ -23,7 +29,13 @@
         <?php if(isset($_SESSION['admin'])): ?>
             <ul class="flex space-x-4 ml-4">
                 <li>
+                    <a href="<?php echo URLROOT; ?>/users/logout" class="text-white hover:text-gray-300">Categories</a>
+                </li>
+                <li>
                     <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">Dashboard</a>
+                </li>
+                <li>
+                    <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">My Wikies</a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/users/logout" class="text-white hover:text-gray-300">Logout</a>
