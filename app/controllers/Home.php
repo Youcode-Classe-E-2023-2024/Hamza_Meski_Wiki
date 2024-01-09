@@ -18,7 +18,7 @@ class Home extends Controller {
     }
 
     public function postSection($postId) {
-        $post = $this->postModel->getPostById($postId);
+        $post = $this->postModel->getPostByPostId($postId);
         $postAuthor = $this->userModel->getUserById($post->user_id);
         $postCategory = $this->categoryModel->getCategoryById($post->id);
         $postTags = $this->tagModel->getTagsById($post->id);

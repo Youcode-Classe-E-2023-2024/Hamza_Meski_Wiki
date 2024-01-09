@@ -12,11 +12,20 @@ class Post {
         return $this->db->resultSet();
     }
 
-    public function getPostById($id) {
+    public function getPostByPostId($id) {
         $this->db->query('SELECT * FROM posts WHERE id = :id'); 
         $this->db->bind(':id', $id);
 
         $row = $this->db->single();
+
+        return $row;
+    }
+
+    public function getPostsByUserId($id) {
+        $this->db->query('SELECT * FROM posts WHERE user_id = :id'); 
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->resultSet();
 
         return $row;
     }
