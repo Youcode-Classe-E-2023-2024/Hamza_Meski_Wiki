@@ -22,23 +22,14 @@ class Home extends Controller {
         $postAuthor = $this->userModel->getUserById($post->user_id);
         $postCategory = $this->categoryModel->getCategoryById($post->id);
         $postTags = $this->tagModel->getTagsById($post->id);
-
-
-        echo '<pre>';
-        print_r($postCategory);
-        echo '</pre>';
+        $nmb_of_posts_by_author = $this->postModel->nmbOfPostsByUser($post->user_id);
         
-        echo '<pre>';
-        print_r($postTags);
-        echo '</pre>';
-
-
-        die();
         $data = [
             'post' => $post,
             'postAuthor' => $postAuthor,
             'postCategory' => $postCategory,
-            'postTags' => $postTags
+            'postTags' => $postTags, 
+            'nmb_of_posts_by_author' => $nmb_of_posts_by_author
         ];
         $this->view('home/postSection', $data);
     }

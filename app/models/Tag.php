@@ -22,7 +22,11 @@ class Tag {
     }
 
     public function getTagsById($id) {
-        $this->db->query('SELECT * FROM tags WHERE id = :id'); 
+        $this->db->query('  SELECT tags.name
+                            FROM tags
+                            JOIN posts_tags ON tags.id = posts_tags.tag_id
+                            WHERE posts_tags.post_id = :id;
+                        '); 
         $this->db->bind(':id', $id);
 
         $row = $this->db->resultSet();
