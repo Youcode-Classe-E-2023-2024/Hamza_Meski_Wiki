@@ -24,5 +24,9 @@ class Pages extends Controller {
         ];
         $this->view('pages/about', $data);
     }
+
+    public function categories() {
+        $this->view('pages/categories');
+    }
 }
 ?>
