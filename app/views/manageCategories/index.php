@@ -1,8 +1,3 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-    Admin Section
-    <?php 
-    echo '<pre>'; 
-    print_r($_SESSION); 
-    echo '</pre>';
-    ?>
+    <div class="h-screen w-full bg-red-500">Mange Categories</div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

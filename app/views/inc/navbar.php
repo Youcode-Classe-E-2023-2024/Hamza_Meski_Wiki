@@ -1,4 +1,4 @@
-<nav class="bg-gray-800 p-4">
+<nav class="bg-gray-800 p-4 fixed w-full z-10">
     <a href="<?php echo URLROOT; ?>" class="text-white text-lg font-bold">Logo</a>
 
     <div class="flex">
@@ -23,7 +23,7 @@
         <?php if(isset($_SESSION['admin'])): ?>
             <ul class="flex space-x-4 ml-4">
                 <li>
-                    <a href="<?php echo URLROOT; ?>/admin/index" class="text-white hover:text-gray-300">Admin</a>
+                    <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">Dashboard</a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/users/logout" class="text-white hover:text-gray-300">Logout</a>
