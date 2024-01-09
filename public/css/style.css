@@ -1,3 +1,14 @@
+/* For webkit-based browsers like Chrome and Safari */
 body {
-    /* background-color: yellow; */
-}
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: transparent transparent; /* For Firefox */
+  }
+  
+body::-webkit-scrollbar {
+    width: 12px; /* Adjust the width as needed */
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background-color: transparent !important; /* Make the thumb transparent */
+  }
+
