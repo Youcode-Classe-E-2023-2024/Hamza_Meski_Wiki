@@ -1,19 +1,19 @@
 <?php  
-class Post {
+class Category {
     private $db; 
 
     public function __construct() {
         $this->db = new Database();
     }
 
-    public function getTags() {
-        $this->db->query("SELECT * FROM tags");
+    public function getCategories() {
+        $this->db->query("SELECT * FROM categories");
 
         return $this->db->resultSet();
     }
 
-    public function getTagById($id) {
-        $this->db->query('SELECT * FROM posts WHERE id = :id'); 
+    public function getCategoryById($id) {
+        $this->db->query('SELECT * FROM categories WHERE id = :id'); 
         $this->db->bind(':id', $id);
 
         $row = $this->db->single();
