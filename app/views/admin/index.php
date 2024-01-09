@@ -6,7 +6,7 @@
 
 
     <!-- main content -->
-    <main class="h-screen w-full absolute top-14">
+    <main class="h-screen w-full absolute top-[90px] ">
         <!-- left sidebar -->
         <aside id="sidebar"
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">
