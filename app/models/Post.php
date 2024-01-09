@@ -64,4 +64,14 @@ class Post {
             return false;
         }
     }
+
+    public function nmbOfPostsByUser($userId) {
+        $this->db->query('  SELECT COUNT(*) AS post_count
+                            FROM posts
+                            WHERE user_id = :id;
+                        ');
+        $this->db->bind(':id', $userId);
+
+        return $this->db->execute();
+    }
 }

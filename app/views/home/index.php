@@ -45,9 +45,6 @@
           </p>
         </div>
         <div class="mt-auto">
-          <!-- <?php
-          echo URLROOT . '/public/images';
-          ?> -->
           <img src="<?php echo URLROOT; ?>/public/images/<?php echo $post->image_name ?>" alt="" class="w-full h-48 object-cover">
         </div>
       </div>
