@@ -19,14 +19,14 @@ if(loginForm){
                 loginEmailErr.textContent = '';
                 loginPasswordErr.textContent = '';
                 if(data[0] == '' && data[1] == '' && data[2] == 0){
-                    location.href = URLROOT + '/home/index';
+                    location.href = URLROOT + '/pages/index';
                 }
                 if(data[0] == '' && data[1] == '' && data[2] == 1){
                     location.href = URLROOT + '/admin/index';
                 }
 
                 if(data[0] != ''){
-                    loginEmailErr.textContent = data[0];
+                    loginEmailErr.textContent = data[0]; 
                 }
                 if(data[1] != ''){
                     loginPasswordErr.textContent = data[1];
