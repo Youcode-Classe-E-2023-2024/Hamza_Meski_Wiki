@@ -15,7 +15,7 @@
                     <a href="<?php echo URLROOT; ?>/pages/categories" class="text-white hover:text-gray-300">Categories</a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">My Wikies</a>
+                    <a href="<?php echo URLROOT; ?>/posts/index" class="text-white hover:text-gray-300">My Wikies</a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/pages/about" class="text-white hover:text-gray-300">About</a>
@@ -35,7 +35,7 @@
                     <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">Dashboard</a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT; ?>/dashboard/index" class="text-white hover:text-gray-300">My Wikies</a>
+                    <a href="<?php echo URLROOT; ?>/posts/index" class="text-white hover:text-gray-300">My Wikies</a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/pages/about" class="text-white hover:text-gray-300">About</a>
