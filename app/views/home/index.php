@@ -13,7 +13,7 @@
 <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
   <div class="m-10 flex flex-col items-center mx-auto max-w-screen-lg">
     <!-- search bar component -->
-    <div class="flex w-full mx-10 rounded bg-white">
+    <div class="flex w-[60%] mx-10 rounded bg-white">
         <input class=" w-full border-none bg-transparent px-4 py-1 text-gray-400 outline-none focus:outline-none " type="search" name="search" placeholder="Search..." />
         <button type="submit" class="m-2 rounded bg-blue-600 px-4 py-2 text-white">
             <svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve" width="512px" height="512px">
