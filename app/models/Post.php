@@ -12,6 +12,15 @@ class Post {
         return $this->db->resultSet();
     }
 
+    public function getPostById($id) {
+        $this->db->query('SELECT * FROM posts WHERE id = :id'); 
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
     public function addPost($data) {
         // query
         $this->db->query('INSERT INTO posts(title, user_id, body) VALUES(:title, :user_id, :body)');
@@ -41,15 +50,6 @@ class Post {
         }else {
             return false;
         }
-    }
-
-    public function getPostById($id) {
-        $this->db->query('SELECT * FROM posts WHERE id = :id'); 
-        $this->db->bind(':id', $id);
-
-        $row = $this->db->single();
-
-        return $row;
     }
 
     public function deletePost($id){
