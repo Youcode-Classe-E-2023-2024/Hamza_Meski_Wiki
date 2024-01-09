@@ -11,7 +11,8 @@ class Home extends Controller {
         $this->view('home/index', $data);
     }
 
-    public function postSection() {
-        $this->view('home/postSection');
+    public function postSection($postId) {
+        $data = $this->postModel->getPostById($postId);
+        $this->view('home/postSection', $data);
     }
 }
