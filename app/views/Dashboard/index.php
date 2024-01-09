@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 
 
-
-
     <!-- main content -->
     <main class="h-screen w-full absolute top-[90px] ">
         <!-- left sidebar -->
