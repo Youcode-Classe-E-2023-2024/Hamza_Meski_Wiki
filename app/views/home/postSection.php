@@ -6,7 +6,7 @@
        <div>
         <div class="pr-12">
           <p class="peer mb-6 text-gray-400">
-            <?php echo $data->content; ?>
+            content Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ab nisi doloremque, iure natus non, ut, vel dolorum sint ad doloribus perspiciatis est beatae praesentium dolores! Sunt assumenda ducimus autem eveniet porro necessitatibus accusantium eius, dicta magni repellendus animi optio quaerat quis sint, officia eos laborum consectetur magnam. Eligendi qui vel vitae nulla ea nam, et praesentium ex necessitatibus impedit voluptatibus, libero mollitia nesciunt, minima quae quod exercitationem quam tempora ipsa recusandae modi consequuntur dolor ullam. Hic nam, quasi ipsam obcaecati explicabo laboriosam dolor asperiores quos. Quos, reiciendis quia eveniet nam, dolore reprehenderit accusantium voluptatibus impedit rem excepturi sapiente debitis.
           </p>
           <h3 class="mb-4 font-semibold text-xl text-gray-400">tags</h3>
           <ul role="list" class="marker:text-sky-400 list-disc pl-5 space-y-3 text-slate-500">
