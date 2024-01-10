@@ -22,19 +22,22 @@
                     </main>
                 </div>
                 <!-- END OF SELECT TAGS -->
-                <div class="md:col-span-2">
-                    <input type="text" id="post-title" name="title" placeholder="Wiki Title" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
+                <div class="md:col-span-2 flex gap-1">
+                    <input type="text" id="post-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
+                    <div class="flex-1">
+                        <label for="post-content" class="float-left block font-normal text-gray-400 text-lg">Select category :</label>
+                        <select id="post-content" name="content" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
+                            <option value="" disabled selected>Select a Category</option>
+                            <?php foreach($data['categories'] as $category): ?>
+                                <option value="Option-1"><?php echo $category->name; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
-                <div class="md:col-span-2">
-                    <label for="post-content" class="float-left block  font-normal text-gray-400 text-lg">Vous accompagner sur :</label>
-                    <select id="post-content" name="content" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
-                        <option value="" disabled selected>Select a Category</option>
-                        <?php foreach($data['categories'] as $category): ?>
-                        <option value="Option-1"><?php echo $category->name; ?></option>
-                        <?php endforeach; ?>
-                    </select>
+
+                <!-- <div class="md:col-span-2">
                 </div>
-                
+                 -->
                 
                 <div class="md:col-span-2">
                     <label for="image" class="float-left block  font-normal text-gray-400 text-lg">Choose Your Wiki Pecture :</label>
