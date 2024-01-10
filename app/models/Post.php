@@ -17,7 +17,6 @@ class Post {
         $this->db->bind(':id', $id);
 
         $row = $this->db->single();
-
         return $row;
     }
 

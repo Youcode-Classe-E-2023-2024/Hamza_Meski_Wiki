@@ -11,15 +11,6 @@ class Posts extends Controller {
     }
 
     public function index() {
-        $this->view('Posts/index');
-    }
-
-    public function getPostsByUserId() {
-        $posts = $this->postModel->getPostsByUserId($_SESSION['user_id']);
-        echo json_encode($posts);
-    }
-
-    public function addPostSection() {
         $categories = $this->categoryModel->getCategories();
         $tags = $this->tagModel->getTags();
         $data = [
@@ -27,7 +18,12 @@ class Posts extends Controller {
             'categories' => $categories, 
             'tags' => $tags
         ];
-        $this->view('posts/addPostSection', $data);
+        $this->view('Posts/index', $data);
+    }
+
+    public function getPostsByUserId() {
+        $posts = $this->postModel->getPostsByUserId($_SESSION['user_id']);
+        echo json_encode($posts);
     }
 
     public function addPost() {

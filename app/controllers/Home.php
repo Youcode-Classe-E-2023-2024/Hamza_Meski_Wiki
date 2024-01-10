@@ -20,7 +20,7 @@ class Home extends Controller {
     public function postSection($postId) {
         $post = $this->postModel->getPostByPostId($postId);
         $postAuthor = $this->userModel->getUserById($post->user_id);
-        $postCategory = $this->categoryModel->getCategoryById($post->id);
+        $postCategory = $this->categoryModel->getCategoryById($post->category_id);
         $postTags = $this->tagModel->getTagsById($post->id);
         $nmb_of_posts_by_author = $this->postModel->nmbOfPostsByUser($post->user_id);
         
@@ -31,6 +31,7 @@ class Home extends Controller {
             'postTags' => $postTags, 
             'nmb_of_posts_by_author' => $nmb_of_posts_by_author
         ];
+
         $this->view('home/postSection', $data);
     }
 }
