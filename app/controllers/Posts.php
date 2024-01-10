@@ -28,12 +28,18 @@ class Posts extends Controller {
         echo json_encode($posts);
     }
 
+
+
+
     /* CRUD FUNCTIONNALITIES */ 
-    public function add(){
+    public function addPost(){
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // sanitize POST array
             $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $content = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             
             $data = [
@@ -80,7 +86,7 @@ class Posts extends Controller {
         }
     }
 
-    public function edit($id){
+    public function updatePost($id){
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // sanitize POST array
             $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -139,35 +145,8 @@ class Posts extends Controller {
         }
     }
 
-    public function show($id) {
-        $post = $this->postModel->getPostById($id);
-        $user = $this->userModel->getUserById($post->user_id);
-
-        $data = [
-            'post' => $post, 
-            'user' => $user
-        ];
-
-        $this->view('posts/show', $data);
-    }
-
-    public function delete($id) {
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            // get existing post from model 
-            $post = $this->postModel->getPostById($id);
-            // check for owner 
-            if($post->user_id != $_SESSION['user_id']){
-                redirect('posts');
-            }
-            
-            if($this->postModel->deletePost($id)){
-                redirect('posts/index');
-            }else{
-                die('something wrong');
-            }
-        }else{
-            redirect('posts/index');
-        }
+    public function deletePost($postId) {
+        $this->postModel->deletePost($postId);
     }
 }
 ?>
