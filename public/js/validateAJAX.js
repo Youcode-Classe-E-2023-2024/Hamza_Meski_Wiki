@@ -1,5 +1,4 @@
 /* login form */
-
 const loginForm = document.getElementById('login-form');
 if(loginForm){
     const loginEmailErr = document.getElementById('login-email-err');
@@ -81,3 +80,22 @@ if(registerForm){
             })
     })
 }
+
+/* add post form  */
+const addPostForm = document.getElementById('add-post-form'); 
+if(addPostForm) {
+    addPostForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/posts/addPost', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(data => console.log(data));
+    })
+}
+
+
+console.log('val')
