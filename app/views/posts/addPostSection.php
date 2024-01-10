@@ -1,6 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
 <!-- component -->
+<a href="<?php echo URLROOT ?>/posts/index">back</a>
 <div class="max-w-lg lg:ms-auto mx-auto text-center ">
     <div class="py-16 px-7 rounded-md bg-white">
                                     
