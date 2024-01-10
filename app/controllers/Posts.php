@@ -1,9 +1,11 @@
 <?php 
 class Posts extends Controller {
     public $postModel;
+    public $categoryModel;
 
     public function __construct() {
         $this->postModel = $this->model('Post');
+        $this->categoryModel = $this->model('Category');
     }
 
     public function index() {
@@ -16,7 +18,11 @@ class Posts extends Controller {
     }
 
     public function addPostSection() {
-        $this->postModel->view('posts/addPostSection');
+        $categories = $this->categoryModel->getCategories();
+        $data = [
+            'categories' => $categories
+        ];
+        $this->view('posts/addPostSection', $data);
     }
 
     public function addPost() {
