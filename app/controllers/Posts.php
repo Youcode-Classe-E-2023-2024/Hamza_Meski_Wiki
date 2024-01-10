@@ -2,10 +2,12 @@
 class Posts extends Controller {
     public $postModel;
     public $categoryModel;
+    public $tagModel;
 
     public function __construct() {
         $this->postModel = $this->model('Post');
         $this->categoryModel = $this->model('Category');
+        $this->tagModel = $this->model('Tag');
     }
 
     public function index() {
@@ -19,8 +21,11 @@ class Posts extends Controller {
 
     public function addPostSection() {
         $categories = $this->categoryModel->getCategories();
+        $tags = $this->tagModel->getTags();
         $data = [
-            'categories' => $categories
+            'user_id' => $_SESSION['user_id'],
+            'categories' => $categories, 
+            'tags' => $tags
         ];
         $this->view('posts/addPostSection', $data);
     }
