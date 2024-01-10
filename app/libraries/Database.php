@@ -33,6 +33,10 @@ class Database {
         }
     }
 
+    public function insertedId() {
+        return $this->dbh->lastInsertId();
+    }
+
     // prepare statement with query 
     public function query($sql) {
         $this->stmt = $this->dbh->prepare($sql);

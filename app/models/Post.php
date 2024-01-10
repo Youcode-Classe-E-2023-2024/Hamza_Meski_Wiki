@@ -40,7 +40,7 @@ class Post {
         $this->db->bind(':category_id', $data['category_id']);
         // execute 
         if($this->db->execute()) {
-            return true;
+            return $this->db->insertedId();
         }else {
             return false;
         }

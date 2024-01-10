@@ -6,7 +6,7 @@ class PostTag {
         $this->db = new Database();
     }
 
-    public function addPostTag($data) {
+    public function addPostTag($postId, $selected_tags) {
         // query
         $this->db->query('INSERT INTO posts(title, user_id, body) VALUES(:title, :user_id, :body)');
         // bind values

@@ -37,26 +37,28 @@ class Posts extends Controller {
     public function addPost(){
 
         // sanitize POST array
-        if(!isset($_POST['selected_tags'])) {
-            $_POST['selected_tags'] = [];
-        }
-        $selected_tags = $_POST['selected_tags'];
         $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $content = filter_var($_POST['content'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $image_name = 'ice.avif';
-        $category = filter_var($_POST['category'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
+        $category = filter_var($_POST['category_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        
         $data = [
             'title' => trim($title), 
             'content' => trim($content),
             'image_name' => trim($image_name),
-            'category' => trim($category),
-            'selected_tags' => $selected_tags
+            'category_id' => trim($category),
         ];
 
         echo '<pre>';
         print_r($data);
         echo '</pre>';
+        
+        $this->postModel->addPost($data);
+        $this->postModel->getPostByPostTime()
+        if(isset($_POST['selected_tags'])) {
+            // $this->postTagModel->addPostTag($postId ,$_POST['selected_tags']);
+        }
+
 
         // // validate title 
         // if(empty($data['title'])) {

@@ -75,7 +75,7 @@
                                     <input type="text" id="post-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                     <div class="flex-1">
                                         <label for="post-content" class="block font-normal text-gray-600 text-lg">Select category:</label>
-                                        <select id="post-category" name="category" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
+                                        <select id="post-category" name="category_id" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                             <option value="" disabled selected>Select a Category</option>
                                             <?php foreach($data['categories'] as $category): ?>
                                                 <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
