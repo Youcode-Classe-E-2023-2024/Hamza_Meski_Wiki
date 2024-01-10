@@ -15,7 +15,7 @@ function deletePost(id){
                 icon: "success",
                 title: "Post deleted successfully",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 2500
               });
         }
     })

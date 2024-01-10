@@ -38,40 +38,21 @@ class Posts extends Controller {
 
         // sanitize POST array
         $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $content = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $image_name = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $category_id = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $
+        $content = filter_var($_POST['content'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $image_name = 'ice.avif';
+        $category = filter_var($_POST['category_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         
         $data = [
             'title' => trim($title), 
-            'body' => trim($body),
-            'user_id' => $_SESSION['user_id'], 
-            'title_err' => '', 
-            'body_err' => ''
+            'content' => trim($content),
+            'image_name' => trim($image_name),
+            'category_id' => trim($category),
         ];
 
-        // validate title 
-        if(empty($data['title'])) {
-            $data['title_err'] = 'Please enter title';
-        }
-
-        // validate body 
-        if(empty($data['body'])) {
-            $data['body_err'] = 'Please enter body text';
-        }
-
-        // make sure no errors 
-        if(empty($data['title_err']) && empty($data['body_err'])) {
-            // validated 
-            if($this->postModel->addPost($data)) {
-                redirect('posts/index');
-            }else {
-                die('something went wrong!');
-            }
-        }else {
-            // load view with errors 
-            $this->view('posts/add', $data);
+        // inserting post and getting its id at the same time:
+        $postId = $this->postModel->addPost($_SESSION['user_id'], $data);
+        if(isset($_POST['selected_tags'])) {
+            $this->postTagModel->addPostTag($postId ,$_POST['selected_tags']);
         }
     }
 
