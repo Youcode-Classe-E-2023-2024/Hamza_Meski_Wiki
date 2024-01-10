@@ -1,8 +1,8 @@
 const postsIndex = document.getElementById('posts-index');
 /* functions */ 
 function deletePost(id){
-    fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
-        method: 'DELETE', 
+    fetch(URLROOT + '/posts/deletePost/' + id, {
+        method: 'POST', 
         headers: {
             'Content-Type': 'application/json',
         }
@@ -19,7 +19,11 @@ function deletePost(id){
               });
         }
     })
+    .then(()=>{
+        location.href = (URLROOT + '/posts/index');
+    })
 }
+
 if(postsIndex){
     $(document).ready(function(){
         // Initialize DataTable
@@ -38,8 +42,7 @@ if(postsIndex){
                 {
                     data: 'id',
                     render: function(data) {
-                        return `<div class="flex gap-2"><button onclick="deletePost(${data})" name="btn" class="text-red-500 hover:underline mr-2">delete</button>` +
-                            `<a href="${URLROOT}/posts/editPost/${data}" class="delete_btn text-blue-500 hover:underline focus:outline-none focus:ring focus:border-red-300" data-id="' + data + '">edit</a></div>`;
+                        return `<div class="flex gap-2"><button onclick="deletePost(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600 mr-2">delete</button>`;
                     }
                 }
             ]
