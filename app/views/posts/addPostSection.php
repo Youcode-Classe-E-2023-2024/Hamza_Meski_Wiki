@@ -7,12 +7,10 @@
         <form class="border-2 border-solid p-2 rounded-md">
             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
                 <!-- START OF SELECT TAGS -->
-                <label for="subject" class="float-left block  font-normal text-gray-400 text-lg ">Select Wiki tags :</label>
-                <!--  -->
                 <div class="md:col-span-2">
-                    <label for="subject" class="float-left block  font-normal text-gray-400 text-lg">Select Wiki tags :</label>
+                    <label for="subject" class="float-left block  font-normal text-gray-400 text-lg">Select wiki tags :</label>
                     <main class="overflow-auto w-full h-[100px] col-span-2">
-                        <div id="addFriend_section" class="bg-green-400 ">
+                        <div id="addFriend_section" class="bg-gray-200 ">
                             <main class="flex gap-1 items-center pl-2 border-b border-solid">
                                 <input type="checkbox" name="selected_users[]" value="10" class="w-5 h-5 ">
                                 <p>science</p>
@@ -47,7 +45,6 @@
                             </main>
                         </div>
                     </main>
-                    <!-- <input type="file" id="file" name="file" placeholder="Charger votre fichier" class="peer block w-full appearance-none border-none   bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"> -->
                 </div>
                 <!-- END OF SELECT TAGS -->
                 <div class="md:col-span-2">
