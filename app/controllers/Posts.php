@@ -27,8 +27,11 @@ class Posts extends Controller {
     }
 
     public function addPost() {
-
         $this->postModel->addPost($_SESSION['user_id'] );
+    }
+
+    public function deletePost($postId) {
+        $this->postModel->deletePost($postId);
     }
 }
 ?>
