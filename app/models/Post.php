@@ -31,12 +31,11 @@ class Post {
 
     public function addPost($userId, $data) {
         // query
-        $this->db->query('INSERT INTO posts(title, content, image_name, status, user_id, category_id) VALUES(:title, :content, :image_name, :status, :user_id, :category_id)');
+        $this->db->query('INSERT INTO posts(title, content, image_name, user_id, category_id) VALUES(:title, :content, :image_name, :user_id, :category_id)');
         // bind values
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':content', $data['content']);
         $this->db->bind(':image_name', $data['image_name']);
-        $this->db->bind(':status', $data['status']);
         $this->db->bind(':user_id', $userId);
         $this->db->bind(':category_id', $data['category_id']);
         // execute 
@@ -50,13 +49,12 @@ class Post {
     public function updatePost($postId, $data) {
         // die('UpdatePost here');
         // query
-        $this->db->query('UPDATE posts SET title = :title, content = :content, image_name = :image_name, status = :status WHERE id = :postId');
+        $this->db->query('UPDATE posts SET title = :title, content = :content, image_name = :image_name WHERE id = :postId');
         // bind values
         $this->db->bind(':postId', $postId);
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':content', $data['content']);
         $this->db->bind(':image_name', $data['image_name']);
-        $this->db->bind(':status', $data['status']);
         // execute 
         if($this->db->execute()) {
             return true;

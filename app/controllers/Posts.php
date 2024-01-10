@@ -4,12 +4,14 @@ class Posts extends Controller {
     public $postModel;
     public $categoryModel;
     public $tagModel;
+    public $postTagModel;
 
     public function __construct() {
         $this->userModel = $this->model('User');
         $this->postModel = $this->model('Post');
         $this->categoryModel = $this->model('Category');
         $this->tagModel = $this->model('Tag');
+        $this->postTagModel = $this->model('PostTag');
     }
 
     public function index() {
@@ -34,113 +36,79 @@ class Posts extends Controller {
     /* CRUD FUNCTIONNALITIES */ 
     public function addPost(){
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // sanitize POST array
-            $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $content = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            
-            $data = [
-                'title' => trim($title), 
-                'body' => trim($body),
-                'user_id' => $_SESSION['user_id'], 
-                'title_err' => '', 
-                'body_err' => ''
-            ];
+        // sanitize POST array
+        $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $content = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $image_name = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $category_id = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $
+        
+        $data = [
+            'title' => trim($title), 
+            'body' => trim($body),
+            'user_id' => $_SESSION['user_id'], 
+            'title_err' => '', 
+            'body_err' => ''
+        ];
 
-            // validate title 
-            if(empty($data['title'])) {
-                $data['title_err'] = 'Please enter title';
-            }
+        // validate title 
+        if(empty($data['title'])) {
+            $data['title_err'] = 'Please enter title';
+        }
 
-            // validate body 
-            if(empty($data['body'])) {
-                $data['body_err'] = 'Please enter body text';
-            }
+        // validate body 
+        if(empty($data['body'])) {
+            $data['body_err'] = 'Please enter body text';
+        }
 
-            // make sure no errors 
-            if(empty($data['title_err']) && empty($data['body_err'])) {
-                // validated 
-                if($this->postModel->addPost($data)) {
-                    redirect('posts/index');
-                }else {
-                    die('something went wrong!');
-                }
+        // make sure no errors 
+        if(empty($data['title_err']) && empty($data['body_err'])) {
+            // validated 
+            if($this->postModel->addPost($data)) {
+                redirect('posts/index');
             }else {
-                // load view with errors 
-                $this->view('posts/add', $data);
+                die('something went wrong!');
             }
-
         }else {
-            $data = [
-                'title' => '',
-                'body' =>  '',
-                'user_id' => '', 
-                'title_err' => '', 
-                'body_err' => ''
-            ];
-    
+            // load view with errors 
             $this->view('posts/add', $data);
         }
     }
 
-    public function updatePost($id){
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // sanitize POST array
-            $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            
-            $data = [
-                'id' => $id,
-                'title' => trim($title), 
-                'body' => trim($body),
-                'user_id' => $_SESSION['user_id'], 
-                'title_err' => '', 
-                'body_err' => ''
-            ];
+    public function updatePost($postId){
+        // sanitize POST array
+        $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        
+        $data = [
+            // 'id' => $id,
+            'title' => trim($title), 
+            'body' => trim($body),
+            'user_id' => $_SESSION['user_id'], 
+            'title_err' => '', 
+            'body_err' => ''
+        ];
 
-            // validate title 
-            if(empty($data['title'])) {
-                $data['title_err'] = 'Please enter title';
-            }
+        // validate title 
+        if(empty($data['title'])) {
+            $data['title_err'] = 'Please enter title';
+        }
 
-            // validate body 
-            if(empty($data['body'])) {
-                $data['body_err'] = 'Please enter body text';
-            }
+        // validate body 
+        if(empty($data['body'])) {
+            $data['body_err'] = 'Please enter body text';
+        }
 
-            // make sure no errors 
-            if(empty($data['title_err']) && empty($data['body_err'])) {
-                // validated 
-                if($this->postModel->updatePost($data)) {
-                    redirect('posts/index');
-                }else {
-                    die('something went wrong!');
-                }
-            }else {
-                // load view with errors 
-                $this->view('posts/edit', $data);
-            }
-
-        }else {
-            // get existing post from model
-            $post = $this->postModel->getPostById($id);
-
-            // check for owner
-            if($post->user_id != $_SESSION['user_id']) {
+        // make sure no errors 
+        if(empty($data['title_err']) && empty($data['body_err'])) {
+            // validated 
+            if($this->postModel->updatePost($data)) {
                 redirect('posts/index');
+            }else {
+                die('something went wrong!');
             }
-
-            $data = [
-                'id' => $id,
-                'title' =>  $post->title,
-                'body' => $post->body, 
-                'title_err' => '', 
-                'body_err' => '', 
-            ];
-    
+        }else {
+            // load view with errors 
             $this->view('posts/edit', $data);
         }
     }
