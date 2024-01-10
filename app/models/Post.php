@@ -31,7 +31,7 @@ class Post {
 
     public function addPost($data) {
         // query
-        $this->db->query('INSERT INTO posts(title, user_id, body) VALUES(:title, :user_id, :body)');
+        $this->db->query('INSERT INTO posts(title, content, image_name, status, user_id, category_id) VALUES(:title, :content, image_, :body)');
         // bind values
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':user_id', $data['user_id']);
