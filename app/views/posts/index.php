@@ -25,35 +25,51 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form class="p-4 md:p-5">
-                    <div class="grid gap-4 mb-4 grid-cols-2">
-                        <div class="col-span-2">
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required="">
+                <form class="border-2 border-solid p-2 rounded-md">
+                    <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
+                        <!-- START OF SELECT TAGS -->
+                        <div class="md:col-span-2">
+                            <label for="subject" class="float-left block  font-normal text-gray-400 text-lg">Select wiki tags :</label>
+                            <main class="overflow-auto w-full h-[100px] col-span-2">
+                                <div id="addFriend_section" class="bg-gray-200 ">
+                                    <?php foreach($data['tags'] as $tag): ?>
+                                    <main class="flex gap-1 items-center pl-2 border-b border-solid">
+                                        <input type="checkbox" name="selected_users[]" value="10" class="w-5 h-5 ">
+                                        <p><?php echo $tag->name; ?></p>
+                                    </main>
+                                    <?php endforeach; ?>
+                                </div>
+                            </main>
                         </div>
-                        <div class="col-span-2 sm:col-span-1">
-                            <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                            <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required="">
+                        <!-- END OF SELECT TAGS -->
+                        <div class="md:col-span-2 flex gap-1">
+                            <input type="text" id="post-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
+                            <div class="flex-1">
+                                <label for="post-content" class="float-left block font-normal text-gray-400 text-lg">Select category :</label>
+                                <select id="post-content" name="content" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
+                                    <option value="" disabled selected>Select a Category</option>
+                                    <?php foreach($data['categories'] as $category): ?>
+                                        <option value="Option-1"><?php echo $category->name; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-span-2 sm:col-span-1">
-                            <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                            <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected="">Select category</option>
-                                <option value="TV">TV/Monitors</option>
-                                <option value="PC">PC</option>
-                                <option value="GA">Gaming/Console</option>
-                                <option value="PH">Phones</option>
-                            </select>
+        
+                        <!-- <div class="md:col-span-2">
                         </div>
-                        <div class="col-span-2">
-                            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
-                            <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write product description here"></textarea>                    
+                        -->
+                        
+                        <div class="md:col-span-2">
+                            <label for="image" class="float-left block  font-normal text-gray-400 text-lg">Choose Your Wiki Pecture :</label>
+                            <input type="file" id="post-image" name="image" placeholder="Upload an image" class="peer block w-full appearance-none border-none   bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0">
                         </div>
-                    </div>
-                    <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                        Add new product
-                    </button>
+                        <div class="md:col-span-2">
+                            <textarea name="content" rows="5" cols="" placeholder="Content" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700"></textarea>
+                        </div>
+                        <div class="md:col-span-2">
+                            <button class="py-3 text-base font-medium rounded text-white bg-blue-800 w-full hover:bg-blue-700 transition duration-300">Valider</button>
+                        </div>
+                    </div><!-- Grid End -->
                 </form>
             </div>
         </div>

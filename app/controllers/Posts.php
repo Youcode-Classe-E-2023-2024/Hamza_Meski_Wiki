@@ -11,7 +11,14 @@ class Posts extends Controller {
     }
 
     public function index() {
-        $this->view('Posts/index');
+        $categories = $this->categoryModel->getCategories();
+        $tags = $this->tagModel->getTags();
+        $data = [
+            'user_id' => $_SESSION['user_id'],
+            'categories' => $categories, 
+            'tags' => $tags
+        ];
+        $this->view('Posts/index', $data);
     }
 
     public function getPostsByUserId() {
