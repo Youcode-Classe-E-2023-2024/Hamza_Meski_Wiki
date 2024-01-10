@@ -53,8 +53,8 @@ class Posts extends Controller {
         print_r($data);
         echo '</pre>';
         
-        $this->postModel->addPost($data);
-        $this->postModel->getPostByPostTime()
+        $postId = $this->postModel->addPost($_SESSION['user_id'], $data);
+        echo $postId;
         if(isset($_POST['selected_tags'])) {
             // $this->postTagModel->addPostTag($postId ,$_POST['selected_tags']);
         }
