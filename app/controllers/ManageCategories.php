@@ -11,6 +11,7 @@ class ManageCategories extends Controller {
     }
 
     public function addCategory(){
+
         // sanitize POST array
         $category_name = filter_var($_POST['category_name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -36,7 +37,7 @@ class ManageCategories extends Controller {
             'category_name' => trim($category_name), 
             'image_name' => trim($image_name)
         ];
-
+    
         $this->categoryModel->addCategory($data);
     }
 

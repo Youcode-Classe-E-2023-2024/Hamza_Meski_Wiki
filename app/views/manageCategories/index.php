@@ -66,7 +66,7 @@
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <button class="py-3 text-base font-medium rounded text-white bg-blue-800 w-full hover:bg-blue-700 transition duration-300">Submit</button>
+                                    <button type="submit" class="py-3 text-base font-medium rounded text-white bg-blue-800 w-full hover:bg-blue-700 transition duration-300">Submit</button>
                                 </div>
                             </div><!-- Grid End -->
                         </form>

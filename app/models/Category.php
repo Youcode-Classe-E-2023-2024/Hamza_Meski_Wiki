@@ -23,7 +23,7 @@ class Category {
 
     public function addCategory($data) {
         // query
-        $this->db->query('INSERT INTO categories(category_name, image_name) VALUES(:category_name, :image_name)');
+        $this->db->query('INSERT INTO categories(name, image_name) VALUES(:category_name, :image_name)');
         // bind values
         $this->db->bind(':category_name', $data['category_name']);
         $this->db->bind(':image_name', $data['image_name']);
@@ -38,7 +38,7 @@ class Category {
     public function updateCategory($category_id, $data) {
         // die('UpdatePost here');
         // query
-        $this->db->query('UPDATE categories SET category_name = :category_name, image_name = :image_name, created_at = CURRENT_TIMESTAMP() WHERE id = :category_id');
+        $this->db->query('UPDATE categories SET name = :category_name, image_name = :image_name, created_at = CURRENT_TIMESTAMP() WHERE id = :category_id');
         // bind values
         $this->db->bind(':category_id', $category_id);
         $this->db->bind(':category_name', $data['category_name']);
