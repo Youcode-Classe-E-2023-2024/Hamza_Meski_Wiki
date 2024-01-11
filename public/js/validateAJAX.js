@@ -130,7 +130,6 @@ if(updatePostForm) {
 }
 
 /* add category form */
-/* add post form  */
 const addcategoryForm = document.getElementById('add-category-form'); 
 if(addcategoryForm) {
     addcategoryForm.addEventListener('submit', function(event) {
@@ -149,6 +148,85 @@ if(addcategoryForm) {
                 showConfirmButton: false,
                 timer: 2500
               });
+        })
+    })
+}
+
+/* udpate category form  */
+const updateCategoryForm = document.getElementById('update-category-form'); 
+if(updateCategoryForm) {
+    updateCategoryForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/manageCategories/updateCategory', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(data => console.log(data))
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Category updated successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
+    })
+}
+
+/* add tag form */ 
+const addTagForm = document.getElementById('add-tag-form'); 
+if(addTagForm) {
+    addTagForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/manageTags/addTag', {
+            method: 'POST',
+            body: formData
+        })
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Tag added successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
+        .then(() => {
+            location.reload();
+        })
+    })
+}
+
+/* update tag form */ 
+const updateTagForm = document.getElementById('update-tag-form'); 
+if(updateTagForm) {
+    updateTagForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/manageTags/updateTag', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(data => console.log(data))
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Tag updated successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
+        .then(() => {
+            location.reload();
         })
     })
 }

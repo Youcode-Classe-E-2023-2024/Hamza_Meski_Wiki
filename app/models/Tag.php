@@ -34,13 +34,12 @@ class Tag {
         return $row;
     }
 
-    public function addPost($data) {
+    public function addTag($data) {
         // query
-        $this->db->query('INSERT INTO posts(title, user_id, body) VALUES(:title, :user_id, :body)');
+        $this->db->query('INSERT INTO tags(name) VALUES(:tag_name)');
         // bind values
-        $this->db->bind(':title', $data['title']);
-        $this->db->bind(':user_id', $data['user_id']);
-        $this->db->bind(':body', $data['body']);
+        $this->db->bind(':tag_name', $data['tag_name']);
+
         // execute 
         if($this->db->execute()) {
             return true;
@@ -49,14 +48,13 @@ class Tag {
         }
     }
 
-    public function updatePost($data) {
+    public function updateTag($tag_id, $data) {
         // die('UpdatePost here');
         // query
-        $this->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
+        $this->db->query('UPDATE tags SET name = :tag_name WHERE id = :id');
         // bind values
-        $this->db->bind(':id', $data['id']);
-        $this->db->bind(':title', $data['title']);
-        $this->db->bind(':body', $data['body']);
+        $this->db->bind(':id', $tag_id);
+        $this->db->bind(':tag_name', $data['tag_name']);
         // execute 
         if($this->db->execute()) {
             return true;
@@ -65,8 +63,8 @@ class Tag {
         }
     }
 
-    public function deletePost($id){
-        $this->db->query('DELETE FROM posts WHERE id = :id'); 
+    public function deleteTag($id){
+        $this->db->query('DELETE FROM tags WHERE id = :id'); 
         // bind values 
         $this->db->bind(':id', $id);
 
