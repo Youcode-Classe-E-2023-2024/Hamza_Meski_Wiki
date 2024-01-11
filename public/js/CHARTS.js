@@ -7,7 +7,8 @@ if(CHARTS) {
     /************ graph1  **************/
     Promise.all([usersPromise, postsPromise])
         .then(([users, posts]) => {
-
+            console.log(users); 
+            console.log(posts);
             // Create a mapping of user IDs to post counts
             const userPostCount = {};
             posts.forEach(post => {
@@ -17,11 +18,11 @@ if(CHARTS) {
                     userPostCount[post.user_id] = 1;
                 }
             });
-
+            
             // Extract relevant data for the plot
-            const usernames = users.map(user => user.username);
-            const postCounts = usernames.map(username => userPostCount[users.find(user => user.username === username).id] || 0);
-
+            const usernames = users.map(user => user.name); // Use 'name' instead of 'username'
+            const postCounts = usernames.map(username => userPostCount[users.find(user => user.name === username).id] || 0); // Use 'name' instead of 'username'
+            
             // Create a bar chart using Plotly
             const trace = {
                 x: usernames,
@@ -38,7 +39,7 @@ if(CHARTS) {
                     }
                 }
             };
-
+            
             const layout = {
                 title: 'Number of Posts per User',
                 xaxis: {
@@ -48,11 +49,12 @@ if(CHARTS) {
                     title: 'Number of Posts'
                 }
             };
-
+            
             const config = { responsive: true };
-
+            
             // Plot the chart
-            Plotly.newPlot('chart1', [trace], layout, config);
+            Plotly.newPlot('CHART1', [trace], layout, config);
+            
         })
         .catch(error => console.error('Error fetching data:', error));
     
