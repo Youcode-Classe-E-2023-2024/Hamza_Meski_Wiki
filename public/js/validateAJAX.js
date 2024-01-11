@@ -101,37 +101,37 @@ if(addPostForm) {
                 timer: 2500
               });
         })
-        .then(() => {
-            location.href = URLROOT + '/posts/index';
-        });
     })
 }
 
-/* update post form */ 
+/* add post form  */
 const updatePostForm = document.getElementById('update-post-form'); 
+console.log(updatePostForm)
 if(updatePostForm) {
-    console.log(updatePostForm);
-    addPostForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    updatePostForm.addEventListener('submit', function(event) {
+        event.preventDefault();
 
         const formData = new FormData(this); 
-        fetch(URLROOT + '/posts/addPost', {
+        fetch(URLROOT + '/posts/updatePost', {
             method: 'POST',
             body: formData
         })
+        .then(res => res.text())
+        .then(data => console.log(data))
         .then(() => {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Post added successfully",
+                title: "Post updated successfully",
                 showConfirmButton: false,
                 timer: 2500
               });
         })
-        .then(() => {
-            location.href = URLROOT + '/posts/index';
-        });
+        // .then(() => {
+        //     location.href = URLROOT + '/posts/index';
+        // });
     })
 }
+
 
 console.log('val')

@@ -21,19 +21,17 @@ class PostTag {
         return true;
     }
 
-    public function updatePostTag($data) {
-        // die('UpdatePost here');
-        // query
-        $this->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
-        // bind values
-        $this->db->bind(':id', $data['id']);
-        $this->db->bind(':title', $data['title']);
-        $this->db->bind(':body', $data['body']);
-        // execute 
-        if($this->db->execute()) {
-            return true;
-        }else {
+    public function updatePostTag($postId, $selected_tags) {
+        // removing existing tags for the post
+        $this->db->query('DELETE FROM posts_tags WHERE post_id = :post_id');
+        $this->db->bind(':post_id', $postId);
+        
+        // execute
+        if(!$this->db->execute()) {
             return false;
         }
+    
+        $this->addPostTag($postId, $selected_tags);
     }
+    
 }
