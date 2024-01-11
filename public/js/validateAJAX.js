@@ -104,9 +104,8 @@ if(addPostForm) {
     })
 }
 
-/* add post form  */
+/* udpate post form  */
 const updatePostForm = document.getElementById('update-post-form'); 
-console.log(updatePostForm)
 if(updatePostForm) {
     updatePostForm.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -127,11 +126,29 @@ if(updatePostForm) {
                 timer: 2500
               });
         })
-        // .then(() => {
-        //     location.href = URLROOT + '/posts/index';
-        // });
     })
 }
 
+/* add category form */
+/* add post form  */
+const addcategoryForm = document.getElementById('add-category-form'); 
+if(addcategoryForm) {
+    addcategoryForm.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-console.log('val')
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/manageCategories/addCategory', {
+            method: 'POST',
+            body: formData
+        })
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Category added successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
+    })
+}

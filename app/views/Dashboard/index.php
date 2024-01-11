@@ -24,6 +24,13 @@
                             <span class="whitespace-nowrap pl-1">Manage Tags</span>
                         </a>
                     </li>
+
+                    <li class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
+                        <a class="w-full flex items-center py-3" href="#">
+                            <i class="fa-solid fa-tag text-center px-5"></i>
+                            <span class="whitespace-nowrap pl-1">Handle Wikies</span>
+                        </a>
+                    </li>
                 </ul>
 
                 <ul class="flex flex-col gap-1 mt-2">

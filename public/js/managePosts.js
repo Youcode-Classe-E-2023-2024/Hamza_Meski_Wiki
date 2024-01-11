@@ -2,6 +2,7 @@ const postsIndex = document.getElementById('posts-index');
 
 if(postsIndex){
     /* functions */ 
+    // to delte post
     function deletePost(id){
         fetch(URLROOT + '/posts/deletePost/' + id, {
             method: 'POST', 
@@ -26,9 +27,23 @@ if(postsIndex){
         })
     }
 
+    // to update post
     function postIdAgent(id){
         const postIdAgent = document.getElementById('post-id-agent');
         postIdAgent.setAttribute('value', id);
+
+        fetch(URLROOT + '/posts/getPostByPostId/' + id)
+        .then(res => res.json())
+        .then(data =>{
+            // console.log(data);
+            const postUpdateTitle = document.getElementById('post-update-title'); 
+            const postUPdateContent = document.getElementById('post-update-content');
+            console.log(postUpdateTitle); 
+            console.log(postUPdateContent);
+            postUpdateTitle.value = data.title;
+            postUPdateContent.value = data.content;
+            }
+        )
     }
     
     $(document).ready(function(){

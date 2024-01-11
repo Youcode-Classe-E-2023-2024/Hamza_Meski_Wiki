@@ -15,12 +15,7 @@
                         </a>
                     </li>
 
-                    <li data-modal-target="edit-modal" data-modal-toggle="edit-modal" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
-                        <a class="w-full flex items-center py-3" href="#">
-                        <i class="fa-solid fa-folder text-center px-5"></i>
-                            <span class="whitespace-nowrap pl-1">Edit Wiki</span>
-                        </a>
-                    </li>
+          
                 </ul>
 
                 <ul class="flex flex-col gap-1 mt-2">
@@ -139,7 +134,7 @@
                                 <!-- END OF SELECT TAGS -->
 
                                 <div class="md:col-span-2 flex gap-4">
-                                    <input type="text" id="post-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
+                                    <input type="text" id="post-update-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                     <div class="flex-1">
                                         <label for="post-content" class="block font-normal text-gray-600 text-lg">Select category:</label>
                                         <select id="post-category" name="category_id" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
@@ -157,7 +152,7 @@
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <textarea id="post-content" name="content" rows="5" placeholder="Content" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required></textarea>
+                                    <textarea id="post-update-content" name="content" rows="5" placeholder="Content" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required></textarea>
                                 </div>
 
                                 <div class="md:col-span-2">
