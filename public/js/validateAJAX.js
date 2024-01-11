@@ -107,5 +107,31 @@ if(addPostForm) {
     })
 }
 
+/* update post form */ 
+const updatePostForm = document.getElementById('update-post-form'); 
+if(updatePostForm) {
+    console.log(updatePostForm);
+    addPostForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/posts/addPost', {
+            method: 'POST',
+            body: formData
+        })
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Post added successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
+        .then(() => {
+            location.href = URLROOT + '/posts/index';
+        });
+    })
+}
 
 console.log('val')
