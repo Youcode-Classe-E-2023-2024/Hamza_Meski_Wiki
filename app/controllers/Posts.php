@@ -30,6 +30,11 @@ class Posts extends Controller {
         echo json_encode($posts);
     }
 
+    public function getPosts() {
+        $posts = $this->postModel->getPosts();
+        echo json_encode($posts);
+    }
+
 
     /* CRUD FUNCTIONNALITIES */ 
     public function addPost(){

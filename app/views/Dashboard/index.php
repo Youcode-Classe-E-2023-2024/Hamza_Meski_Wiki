@@ -87,7 +87,7 @@
                 <div class="m-2 shadow-md">
                     <h2 class="text-xl p-2">Bar Chart</h2>
                     <!-- <div id="chart" class="w-full "></div> -->
-                    <div id="CHART1" class="w-full "></div>
+                    <div id="CHART1" class="w-full h-[500px] bg-red-200"></div>
                 </div>
             </div>
 
