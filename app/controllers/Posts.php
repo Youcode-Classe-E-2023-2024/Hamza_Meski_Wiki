@@ -31,8 +31,6 @@ class Posts extends Controller {
     }
 
 
-
-
     /* CRUD FUNCTIONNALITIES */ 
     public function addPost(){
 
@@ -114,6 +112,12 @@ class Posts extends Controller {
 
     public function deletePost($postId) {
         $this->postModel->deletePost($postId);
+    }
+
+    /* charts purpose */ 
+    public function postsByEachUser() {
+        $row = $this->postModel->postsByEachUser();
+        echo json_encode($row);
     }
 }
 ?>
