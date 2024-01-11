@@ -7,7 +7,7 @@
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">
             <div class="flex flex-col justify-between h-full">
                 <ul class="flex flex-col gap-1 mt-2">
-
+                    
                     <li data-modal-target="create-modal" data-modal-toggle="create-modal" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
                         <a class="w-full flex items-center py-3" href="#">
                         <i class="fa-solid fa-folder text-center px-5"></i>
@@ -110,7 +110,7 @@
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                Create wiki
+                                Edit wiki
                             </h3>
                             <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="edit-modal">
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -120,8 +120,9 @@
                             </button>
                         </div>
                         <!-- Modal body -->
-                        <form id="add-post-form" class="border-2 border-solid p-4 rounded-md bg-white">
+                        <form id="update-post-form" class="border-2 border-solid p-4 rounded-md bg-white">
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
+                                <div id="post-id-agent" name="postId">post_id</div>
                                 <!-- SELECT TAGS -->
                                 <div class="md:col-span-2">
                                     <label for="subject" class="block font-normal text-gray-600 text-lg">Select wiki tags:</label>
@@ -168,7 +169,7 @@
                 </div>
             </div> 
             <!-- flow bite structure end -->
-    
+
             <table id="postsTable" class="">
                 <thead class="bg-gray-200 text-gray-700">
                     <tr>

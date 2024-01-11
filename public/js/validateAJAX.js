@@ -101,15 +101,12 @@ if(addPostForm) {
                 timer: 2500
               });
         })
-        // .then(() => {
-        //     // location.href = URLROOT + '/posts/index';
-        // });
     })
 }
 
 /* add post form  */
 const updatePostForm = document.getElementById('update-post-form'); 
-
+console.log(updatePostForm)
 // if(updatePostForm) {
 //     updatePostForm.addEventListener('submit', function(event) {
 //         event.preventDefault();

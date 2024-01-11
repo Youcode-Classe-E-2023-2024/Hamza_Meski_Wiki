@@ -25,6 +25,11 @@ if(postsIndex){
             location.href = (URLROOT + '/posts/index');
         })
     }
+
+    function postIdAgent(id){
+        const postIdAgent = document.getElementById('post-id-agent');
+        postIdAgent.setAttribute('value', id);
+    }
     
     $(document).ready(function(){
         // Initialize DataTable
@@ -45,7 +50,7 @@ if(postsIndex){
                     render: function(data) {
                         return `<div class="flex">
                                     <button onclick="deletePost(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600 mr-2">delete</button>
-                                    <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" onclick="displayEditModel(${data})" name="btn" class="bg-blue-500 p-2 rounded-md text-white hover:bg-blue-600 mr-2">update</button>
+                                    <button onclick="postIdAgent(${data})" data-modal-target="edit-modal" data-modal-toggle="edit-modal" onclick="displayEditModel(${data})" name="btn" class="bg-blue-500 p-2 rounded-md text-white hover:bg-blue-600 mr-2">update</button>
                                 </div>`;
                     }
                 }
