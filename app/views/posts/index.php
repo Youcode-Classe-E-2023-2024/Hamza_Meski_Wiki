@@ -122,7 +122,8 @@
                         <!-- Modal body -->
                         <form id="update-post-form" class="border-2 border-solid p-4 rounded-md bg-white">
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
-                                <div id="post-id-agent" name="postId">post_id</div>
+                                <!-- <div type="hidden" id="post-id-agent" name="postId">post_id</div> -->
+                                <input type="hidden" id="post-id-agent" name="postId">post_id</input>
                                 <!-- SELECT TAGS -->
                                 <div class="md:col-span-2">
                                     <label for="subject" class="block font-normal text-gray-600 text-lg">Select wiki tags:</label>

@@ -73,9 +73,9 @@ class Posts extends Controller {
     }
 
     public function updatePost(){
-    
+     
         // sanitize POST array
-        $postId = filter_var($_POST['post_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $postId = filter_var($_POST['postId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $content = filter_var($_POST['content'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $category = filter_var($_POST['category_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);

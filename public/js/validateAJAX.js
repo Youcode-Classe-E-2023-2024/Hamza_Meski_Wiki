@@ -107,31 +107,31 @@ if(addPostForm) {
 /* add post form  */
 const updatePostForm = document.getElementById('update-post-form'); 
 console.log(updatePostForm)
-// if(updatePostForm) {
-//     updatePostForm.addEventListener('submit', function(event) {
-//         event.preventDefault();
+if(updatePostForm) {
+    updatePostForm.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-//         const formData = new FormData(this); 
-//         fetch(URLROOT + '/posts/updatePost', {
-//             method: 'POST',
-//             body: formData
-//         })
-//         // .then(res => res.text())
-//         // .then(data => console.log(data))
-//         .then(() => {
-//             Swal.fire({
-//                 position: "center",
-//                 icon: "success",
-//                 title: "Post updated successfully",
-//                 showConfirmButton: false,
-//                 timer: 2500
-//               });
-//         })
-//         // .then(() => {
-//         //     location.href = URLROOT + '/posts/index';
-//         // });
-//     })
-// }
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/posts/updatePost', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(data => console.log(data))
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Post updated successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
+        // .then(() => {
+        //     location.href = URLROOT + '/posts/index';
+        // });
+    })
+}
 
 
 console.log('val')
