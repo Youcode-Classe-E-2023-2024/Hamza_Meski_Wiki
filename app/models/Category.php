@@ -38,7 +38,7 @@ class Category {
     public function updateCategory($category_id, $data) {
         // die('UpdatePost here');
         // query
-        $this->db->query('UPDATE categories SET category_name = :category_name, image_name = :image_name WHERE id = :category_id');
+        $this->db->query('UPDATE categories SET category_name = :category_name, image_name = :image_name, created_at = CURRENT_TIMESTAMP() WHERE id = :category_id');
         // bind values
         $this->db->bind(':category_id', $category_id);
         $this->db->bind(':category_name', $data['category_name']);
