@@ -59,7 +59,7 @@
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
 
                                 <div class="md:col-span-2 flex gap-4">
-                                    <input type="text" id="category-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
+                                    <input type="text" id="category-title" name="category_name" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                 </div>
 
                                 <div class="md:col-span-2">

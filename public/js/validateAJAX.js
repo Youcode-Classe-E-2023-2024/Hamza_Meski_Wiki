@@ -104,7 +104,7 @@ if(addPostForm) {
     })
 }
 
-/* add post form  */
+/* udpate post form  */
 const updatePostForm = document.getElementById('update-post-form'); 
 if(updatePostForm) {
     updatePostForm.addEventListener('submit', function(event) {
@@ -129,7 +129,7 @@ if(updatePostForm) {
     })
 }
 
-
+/* add category form */
 
 
 console.log('val')
