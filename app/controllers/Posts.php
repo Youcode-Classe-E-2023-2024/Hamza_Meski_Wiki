@@ -72,8 +72,7 @@ class Posts extends Controller {
         }
     }
 
-    public function getPostByPostId() {
-        $postId = filter_var($_POST['postId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    public function getPostByPostId($postId) {
         $post_info = $this->postModel->getPostByPostId($postId); 
         echo json_encode($post_info);
     }

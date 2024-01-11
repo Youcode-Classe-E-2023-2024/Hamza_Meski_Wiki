@@ -112,30 +112,21 @@ if(updatePostForm) {
         event.preventDefault();
 
         const formData = new FormData(this); 
-        fetch(URLROOT + '/posts/getPostByPostId', {
+        fetch(URLROOT + '/posts/updatePost', {
             method: 'POST',
             body: formData
         })
         .then(res => res.text())
-        .then(data =>{
-            console.log(data);
-            // return fetch(URLROOT + '/posts/updatePost', {
-            //             method: 'POST',
-            //             body: formData
-            //         })
-            }
-        )
-        // .then(res => res.text())
-        // .then(data => console.log(data))
-        // .then(() => {
-        //     Swal.fire({
-        //         position: "center",
-        //         icon: "success",
-        //         title: "Post updated successfully",
-        //         showConfirmButton: false,
-        //         timer: 2500
-        //       });
-        // })
+        .then(data => console.log(data))
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Post updated successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
     })
 }
 
