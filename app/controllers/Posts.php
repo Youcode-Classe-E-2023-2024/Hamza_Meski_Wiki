@@ -72,8 +72,14 @@ class Posts extends Controller {
         }
     }
 
+    public function getPostByPostId() {
+        $postId = filter_var($_POST['postId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $post_info = $this->postModel->getPostByPostId($postId); 
+        echo json_encode($post_info);
+    }
+
     public function updatePost(){
-     
+        
         // sanitize POST array
         $postId = filter_var($_POST['postId'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);

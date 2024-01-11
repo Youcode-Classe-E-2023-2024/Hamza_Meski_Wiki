@@ -2,6 +2,7 @@ const postsIndex = document.getElementById('posts-index');
 
 if(postsIndex){
     /* functions */ 
+    // to delte post
     function deletePost(id){
         fetch(URLROOT + '/posts/deletePost/' + id, {
             method: 'POST', 
@@ -26,6 +27,7 @@ if(postsIndex){
         })
     }
 
+    // to update post
     function postIdAgent(id){
         const postIdAgent = document.getElementById('post-id-agent');
         postIdAgent.setAttribute('value', id);
