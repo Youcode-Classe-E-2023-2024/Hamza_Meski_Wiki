@@ -86,7 +86,7 @@
 
                                 <div class="md:col-span-2">
                                     <label for="image" class="block font-normal text-gray-600 text-lg">Choose Your Wiki Picture:</label>
-                                    <input type="file" id="post-image" name="image" class="w-full py-2.5 px-3 focus:outline-none text-gray-900" required>
+                                    <input type="file" id="post-image" name="image_name" class="w-full py-2.5 px-3 focus:outline-none text-gray-900" required>
                                 </div>
 
                                 <div class="md:col-span-2">
@@ -155,7 +155,7 @@
 
                                 <div class="md:col-span-2">
                                     <label for="image" class="block font-normal text-gray-600 text-lg">Choose Your Wiki Picture:</label>
-                                    <input type="file" id="post-image" name="image" class="w-full py-2.5 px-3 focus:outline-none text-gray-900">
+                                    <input type="file" id="post-image" name="image_name" class="w-full py-2.5 px-3 focus:outline-none text-gray-900">
                                 </div>
 
                                 <div class="md:col-span-2">

@@ -35,12 +35,30 @@ class Posts extends Controller {
 
     /* CRUD FUNCTIONNALITIES */ 
     public function addPost(){
-
+        // echo PROJECT_ROOT;
+        // die(); 
         // sanitize POST array
         $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $content = filter_var($_POST['content'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $image_name = 'ice.avif';
         $category = filter_var($_POST['category_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $image_name = 'ice.avif';
+        // Handling the image upload 
+        if (isset($_FILES['image_name']) && $_FILES['image_name']['error'] === UPLOAD_ERR_OK) {
+            // Get the file name and generate a unique filename
+            $imageName = uniqid() . '_' . basename($_FILES['image_name']['name']);
+    
+            // Set the local path where the image will be saved
+            $imagePath = PROJECT_ROOT . '/public/images/' . $imageName;
+    
+            // Move the uploaded file to the specified path
+            move_uploaded_file($_FILES['image_name']['tmp_name'], $imagePath);
+    
+            // Update the $image_name variable with the local path
+            $image_name = $imageName;
+        } else {
+            // If no file is uploaded, use a default image name
+            $image_name = 'ice.avif';
+        }
         
         $data = [
             'title' => trim($title), 
