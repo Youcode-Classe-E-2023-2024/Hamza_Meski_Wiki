@@ -130,6 +130,25 @@ if(updatePostForm) {
 }
 
 /* add category form */
+/* add post form  */
+const addcategoryForm = document.getElementById('add-category-form'); 
+if(addcategoryForm) {
+    addcategoryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-
-console.log('val')
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/ManageCategories/addCategory', {
+            method: 'POST',
+            body: formData
+        })
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Category added successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
+    })
+}
