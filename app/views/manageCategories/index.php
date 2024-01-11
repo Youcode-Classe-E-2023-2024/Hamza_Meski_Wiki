@@ -57,13 +57,12 @@
                         <!-- Modal body -->
                         <form id="add-category-form" class="border-2 border-solid p-4 rounded-md bg-white">
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
-
                                 <div class="md:col-span-2 flex gap-4">
-                                    <input type="text" id="category-title" name="category_name" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
+                                    <input type="text" name="category_name" placeholder="Category name" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <input type="file" id="category-image" name="image_name" class="w-full py-2.5 px-3 focus:outline-none text-gray-900" required>
+                                    <input type="file" name="image_name" class="w-full py-2.5 px-3 focus:outline-none text-gray-900" required>
                                 </div>
 
                                 <div class="md:col-span-2">
@@ -96,9 +95,10 @@
                         <form id="update-category-form" class="border-2 border-solid p-4 rounded-md bg-white">
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
 
+                                <input type="hidden" name="category_id">
                                 <div class="md:col-span-2 flex gap-4">
-                                    <label for="category-title" class="block font-normal text-gray-600 text-lg">Choose Your Wiki Picture:</label>
-                                    <input type="text" id="category-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
+                                    <label for="category-name" class="block font-normal text-gray-600 text-lg">Choose Your Wiki Picture:</label>
+                                    <input type="text" id="category-name" name="category_name" placeholder="Category name" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                 </div>
 
                                 <div class="md:col-span-2">

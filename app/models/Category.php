@@ -21,13 +21,12 @@ class Category {
         return $row;
     }
 
-    public function addPost($data) {
+    public function addCategory($data) {
         // query
-        $this->db->query('INSERT INTO posts(title, user_id, body) VALUES(:title, :user_id, :body)');
+        $this->db->query('INSERT INTO categories(category_name, image_name) VALUES(:category_name, :image_name)');
         // bind values
-        $this->db->bind(':title', $data['title']);
-        $this->db->bind(':user_id', $data['user_id']);
-        $this->db->bind(':body', $data['body']);
+        $this->db->bind(':category_name', $data['category_name']);
+        $this->db->bind(':image_name', $data['image_name']);
         // execute 
         if($this->db->execute()) {
             return true;
@@ -36,14 +35,14 @@ class Category {
         }
     }
 
-    public function updatePost($data) {
+    public function updateCategory($category_id, $data) {
         // die('UpdatePost here');
         // query
-        $this->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
+        $this->db->query('UPDATE categories SET category_name = :category_name, image_name = :image_name WHERE id = :category_id');
         // bind values
-        $this->db->bind(':id', $data['id']);
-        $this->db->bind(':title', $data['title']);
-        $this->db->bind(':body', $data['body']);
+        $this->db->bind(':category_id', $category_id);
+        $this->db->bind(':category_name', $data['category_name']);
+        $this->db->bind(':image_name', $data['image_name']);
         // execute 
         if($this->db->execute()) {
             return true;
@@ -52,10 +51,10 @@ class Category {
         }
     }
 
-    public function deletePost($id){
-        $this->db->query('DELETE FROM posts WHERE id = :id'); 
+    public function deleteCategory($category_id){
+        $this->db->query('DELETE FROM categories WHERE id = :category_id'); 
         // bind values 
-        $this->db->bind(':id', $id);
+        $this->db->bind(':category_id', $category_id);
 
         // execute 
         if($this->db->execute()) {
