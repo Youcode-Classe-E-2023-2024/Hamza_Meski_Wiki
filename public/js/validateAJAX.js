@@ -197,6 +197,9 @@ if(addTagForm) {
                 timer: 2500
               });
         })
+        .then(() => {
+            location.reload();
+        })
     })
 }
 
@@ -221,6 +224,9 @@ if(updateTagForm) {
                 showConfirmButton: false,
                 timer: 2500
               });
+        })
+        .then(() => {
+            location.reload();
         })
     })
 }

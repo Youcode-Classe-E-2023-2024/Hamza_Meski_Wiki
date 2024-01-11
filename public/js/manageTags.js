@@ -52,7 +52,7 @@ if(manageTagsIndex){
             },
             "columns": [
                 {"data": "id"},
-                {"data": "tag name"},
+                {"data": "name"},
                 {
                     data: 'id',
                     render: function(data) {

@@ -19,7 +19,7 @@
                     </li>
 
                     <li class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
-                        <a class="w-full flex items-center py-3" href="#">
+                        <a class="w-full flex items-center py-3" href="<?php echo URLROOT . '/manageTags/index'; ?>">
                             <i class="fa-solid fa-tag text-center px-5"></i>
                             <span class="whitespace-nowrap pl-1">Manage Tags</span>
                         </a>
