@@ -39,8 +39,24 @@ class Posts extends Controller {
         // sanitize POST array
         $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $content = filter_var($_POST['content'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $image_name = 'ice.avif';
         $category = filter_var($_POST['category_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        // Handling the image upload 
+        if (isset($_FILES['image_name']) && $_FILES['image_name']['error'] === UPLOAD_ERR_OK) {
+            // Get the file name and generate a unique filename
+            $imageName = uniqid() . '_' . basename($_FILES['image_name']['name']);
+    
+            // Set the local path where the image will be saved
+            $imagePath = PROJECT_ROOT . '/public/images/' . $imageName;
+    
+            // Move the uploaded file to the specified path
+            move_uploaded_file($_FILES['image_name']['tmp_name'], $imagePath);
+    
+            // Update the $image_name variable with the local path
+            $image_name = $imageName;
+        } else {
+            // If no file is uploaded, use a default image name
+            $image_name = 'ice.avif';
+        }
         
         $data = [
             'title' => trim($title), 
@@ -57,40 +73,37 @@ class Posts extends Controller {
     }
 
     public function updatePost($postId){
+ 
         // sanitize POST array
+        // $post_id = filter_var($_POST['post_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $content = filter_var($_POST['content'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $category = filter_var($_POST['category_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        // Handling the image upload 
+        if (isset($_FILES['image_name']) && $_FILES['image_name']['error'] === UPLOAD_ERR_OK) {
+            // Get the file name and generate a unique filename
+            $imageName = uniqid() . '_' . basename($_FILES['image_name']['name']);
+    
+            // Set the local path where the image will be saved
+            $imagePath = PROJECT_ROOT . '/public/images/' . $imageName;
+    
+            // Move the uploaded file to the specified path
+            move_uploaded_file($_FILES['image_name']['tmp_name'], $imagePath);
+    
+            // Update the $image_name variable with the local path
+            $image_name = $imageName;
+        }
         
         $data = [
-            // 'id' => $id,
             'title' => trim($title), 
-            'body' => trim($body),
-            'user_id' => $_SESSION['user_id'], 
-            'title_err' => '', 
-            'body_err' => ''
+            'content' => trim($content),
+            'image_name' => trim($image_name),
+            'category_id' => trim($category),
         ];
 
-        // validate title 
-        if(empty($data['title'])) {
-            $data['title_err'] = 'Please enter title';
-        }
-
-        // validate body 
-        if(empty($data['body'])) {
-            $data['body_err'] = 'Please enter body text';
-        }
-
-        // make sure no errors 
-        if(empty($data['title_err']) && empty($data['body_err'])) {
-            // validated 
-            if($this->postModel->updatePost($data)) {
-                redirect('posts/index');
-            }else {
-                die('something went wrong!');
-            }
-        }else {
-            // load view with errors 
-            $this->view('posts/edit', $data);
+        $this->postModel->updatePost($postId, $data);
+        if(isset($_POST['selected_tags'])) {
+            $this->postTagModel->updatePostTag($postId ,$_POST['selected_tags']);
         }
     }
 

@@ -1,30 +1,31 @@
 const postsIndex = document.getElementById('posts-index');
-/* functions */ 
-function deletePost(id){
-    fetch(URLROOT + '/posts/deletePost/' + id, {
-        method: 'POST', 
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    })
-    .then(res => {
-        if(res.status == 200) {
-            console.log(res.status);
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Post deleted successfully",
-                showConfirmButton: false,
-                timer: 2500
-              });
-        }
-    })
-    .then(()=>{
-        location.href = (URLROOT + '/posts/index');
-    })
-}
 
 if(postsIndex){
+    /* functions */ 
+    function deletePost(id){
+        fetch(URLROOT + '/posts/deletePost/' + id, {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(res => {
+            if(res.status == 200) {
+                console.log(res.status);
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Post deleted successfully",
+                    showConfirmButton: false,
+                    timer: 2500
+                  });
+            }
+        })
+        .then(()=>{
+            location.href = (URLROOT + '/posts/index');
+        })
+    }
+    
     $(document).ready(function(){
         // Initialize DataTable
         $('#postsTable').DataTable({
@@ -42,13 +43,10 @@ if(postsIndex){
                 {
                     data: 'id',
                     render: function(data) {
-                        return `<div class="flex gap-2">
+                        return `<div class="flex">
                                     <button onclick="deletePost(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600 mr-2">delete</button>
-                                    <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" class="text-white bg-blue-500 p-2 rounded-md hover:bg-blue-600">
-                                        edit
-                                    </button>
-                                </div>
-                        `;
+                                    <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" onclick="displayEditModel(${data})" name="btn" class="bg-blue-500 p-2 rounded-md text-white hover:bg-blue-600 mr-2">update</button>
+                                </div>`;
                     }
                 }
             ]

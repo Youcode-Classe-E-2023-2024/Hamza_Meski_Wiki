@@ -1,3 +1,6 @@
+.Hidden {
+  display: none;
+}
 /* For webkit-based browsers like Chrome and Safari */
 body {
     scrollbar-width: thin; /* For Firefox */
