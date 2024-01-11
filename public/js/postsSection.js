@@ -42,7 +42,13 @@ if(postsIndex){
                 {
                     data: 'id',
                     render: function(data) {
-                        return `<div class="flex gap-2"><button onclick="deletePost(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600 mr-2">delete</button>`;
+                        return `<div class="flex gap-2">
+                                    <button onclick="deletePost(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600 mr-2">delete</button>
+                                    <button data-modal-target="edit-modal" data-modal-toggle="edit-modal" class="text-white bg-blue-500 p-2 rounded-md hover:bg-blue-600">
+                                        edit
+                                    </button>
+                                </div>
+                        `;
                     }
                 }
             ]
