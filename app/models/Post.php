@@ -49,12 +49,13 @@ class Post {
     public function updatePost($postId, $data) {
         // die('UpdatePost here');
         // query
-        $this->db->query('UPDATE posts SET title = :title, content = :content, image_name = :image_name WHERE id = :postId');
+        $this->db->query('UPDATE posts SET title = :title, content = :content, image_name = :image_name, category_id = :category_id WHERE id = :postId');
         // bind values
         $this->db->bind(':postId', $postId);
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':content', $data['content']);
         $this->db->bind(':image_name', $data['image_name']);
+        $this->db->bind(':category_id', $data['category_id']);
         // execute 
         if($this->db->execute()) {
             return true;

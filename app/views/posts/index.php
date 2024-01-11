@@ -132,7 +132,7 @@
                                     <div class="overflow-auto w-full h-[100px]">
                                         <?php foreach($data['tags'] as $tag): ?>
                                             <div class="flex items-center gap-2 pl-2 border-b border-solid">
-                                                <input type="checkbox" name="selected_tags[]" class="w-5 h-5">
+                                                <input type="checkbox" name="selected_tags[]" value="<?php echo $tag->id; ?>"  class="w-5 h-5">
                                                 <p class="text-gray-800"><?php echo $tag->name; ?></p>
                                             </div>
                                         <?php endforeach; ?>
@@ -144,7 +144,7 @@
                                     <input type="text" id="post-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                     <div class="flex-1">
                                         <label for="post-content" class="block font-normal text-gray-600 text-lg">Select category:</label>
-                                        <select id="post-category" name="category" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
+                                        <select id="post-category" name="category_id" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
                                             <option value="" disabled selected>Select a Category</option>
                                             <?php foreach($data['categories'] as $category): ?>
                                                 <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>

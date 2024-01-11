@@ -92,9 +92,6 @@ class Posts extends Controller {
     
             // Update the $image_name variable with the local path
             $image_name = $imageName;
-        } else {
-            // If no file is uploaded, use a default image name
-            $image_name = 'ice.avif';
         }
         
         $data = [
@@ -104,10 +101,14 @@ class Posts extends Controller {
             'category_id' => trim($category),
         ];
 
+        // echo '<pre>';
+        // print_r($_POST['selected_tags']);
+        // echo '<pre>';
+        // die();
         // inserting post and getting its id at the same time:
         $this->postModel->updatePost($post_id, $data);
         if(isset($_POST['selected_tags'])) {
-            // $this->postTagModel->updatePostTag($post_id ,$_POST['selected_tags']);
+            $this->postTagModel->updatePostTag($post_id ,$_POST['selected_tags']);
         }
     }
 
