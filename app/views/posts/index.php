@@ -120,11 +120,11 @@
                             </button>
                         </div>
                         <!-- Modal body -->
-                        <form class="border-2 border-solid p-4 rounded-md bg-white">
+                        <form id="update-post-form" class="border-2 border-solid p-4 rounded-md bg-white">
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
                                 <div class="md:col-span-2">
                                     <label for="">Wiki ID</label>
-                                    <input type="number" name="wiki_ik">
+                                    <input type="number" name="post_id" required>
                                 </div>
                                 <!-- SELECT TAGS -->
                                 <div class="md:col-span-2">
