@@ -14,12 +14,6 @@
                             <span class="whitespace-nowrap pl-1">Create Category</span>
                         </a>
                     </li>
-                    <li data-modal-target="edit-category" data-modal-toggle="edit-category" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
-                        <a class="w-full flex items-center py-3" href="#">
-                        <i class="fa-solid fa-folder text-center px-5"></i>
-                            <span class="whitespace-nowrap pl-1">Edit Category</span>
-                        </a>
-                    </li>
           
                 </ul>
 
@@ -95,10 +89,10 @@
                         <form id="update-category-form" class="border-2 border-solid p-4 rounded-md bg-white">
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
 
-                                <input type="hidden" name="category_id">
+                                <input id="category-id-agent" type="hidden" name="category_id">
                                 <div class="md:col-span-2 flex gap-4">
                                     <label for="category-name" class="block font-normal text-gray-600 text-lg">Choose Your Wiki Picture:</label>
-                                    <input type="text" id="category-name" name="category_name" placeholder="Category name" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
+                                    <input type="text" id="category-update-name" name="category_name" placeholder="Category name" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                 </div>
 
                                 <div class="md:col-span-2">
