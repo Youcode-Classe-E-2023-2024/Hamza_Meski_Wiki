@@ -72,7 +72,12 @@ class ManageCategories extends Controller {
         $this->categoryModel->updateCategory($category_id, $data);
     }
 
+    public function getCategories() {
+        echo json_encode($this->categoryModel->getCategories());
+    }
+
     public function deleteCategory($category_id) {
-        $this->categoryModel->deletePost($category_id);
+        echo $category_id;
+        $this->categoryModel->deleteCategory($category_id);
     }
 }
