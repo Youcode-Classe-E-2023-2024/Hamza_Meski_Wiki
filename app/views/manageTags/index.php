@@ -85,7 +85,7 @@
                         <form id="update-tag-form" class="border-2 border-solid p-4 rounded-md bg-white">
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
 
-                                <input id="category-id-agent" type="hidden" name="category_id">
+                                <input id="tag-id-agent" type="hidden" name="tag_id">
                                 <div class="md:col-span-2 flex gap-4">
                                     <label class="block font-normal text-gray-600 text-lg">Tag Name:</label>
                                     <input type="text" id="tag-update-name" name="tag_name" placeholder="Tag name" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
