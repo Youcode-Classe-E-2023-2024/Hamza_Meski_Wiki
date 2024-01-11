@@ -106,7 +106,6 @@ if(addPostForm) {
 
 /* add post form  */
 const updatePostForm = document.getElementById('update-post-form'); 
-console.log(updatePostForm)
 if(updatePostForm) {
     updatePostForm.addEventListener('submit', function(event) {
         event.preventDefault();

@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
     <!-- main content -->
-    <main id="posts-index" class="">
+    <main id="manageCategories-index" class="">
         <!-- left sidebar -->
         <aside id="sidebar"
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">
@@ -14,7 +14,12 @@
                             <span class="whitespace-nowrap pl-1">Create Category</span>
                         </a>
                     </li>
-
+                    <li data-modal-target="edit-category" data-modal-toggle="edit-category" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
+                        <a class="w-full flex items-center py-3" href="#">
+                        <i class="fa-solid fa-folder text-center px-5"></i>
+                            <span class="whitespace-nowrap pl-1">Edit Category</span>
+                        </a>
+                    </li>
           
                 </ul>
 
@@ -40,7 +45,7 @@
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                Create wiki
+                                Create category
                             </h3>
                             <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="create-category">
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -54,12 +59,10 @@
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
 
                                 <div class="md:col-span-2 flex gap-4">
-                                    <label for="category-title" class="block font-normal text-gray-600 text-lg">Choose Your Wiki Picture:</label>
                                     <input type="text" id="category-title" name="title" placeholder="Wiki Title" class="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" required>
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="category-image" class="block font-normal text-gray-600 text-lg">Choose Your Wiki Picture:</label>
                                     <input type="file" id="category-image" name="image_name" class="w-full py-2.5 px-3 focus:outline-none text-gray-900" required>
                                 </div>
 
@@ -80,7 +83,7 @@
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                Create wiki
+                                Edit category
                             </h3>
                             <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="edit-category">
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -90,7 +93,7 @@
                             </button>
                         </div>
                         <!-- Modal body -->
-                        <form id="add-category-form" class="border-2 border-solid p-4 rounded-md bg-white">
+                        <form id="update-category-form" class="border-2 border-solid p-4 rounded-md bg-white">
                             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
 
                                 <div class="md:col-span-2 flex gap-4">
@@ -114,12 +117,11 @@
             </div> 
             <!-- flow bite structure end -->
 
-            <table id="postsTable" class="">
+            <table id="categoriesTable" class="">
                 <thead class="bg-gray-200 text-gray-700">
                     <tr>
                         <th class="py-3 px-4">Id</th>
-                        <th class="py-3 px-4">Title</th>
-                        <th class="py-3 px-4">Content</th>
+                        <th class="py-3 px-4">name</th>
                         <th class="py-3 px-4">Image</th>
                         <th class="py-3 px-4">Action</th>
                     </tr>
