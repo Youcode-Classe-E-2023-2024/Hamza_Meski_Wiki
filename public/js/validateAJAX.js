@@ -152,3 +152,28 @@ if(addcategoryForm) {
         })
     })
 }
+
+/* udpate post form  */
+const updateCategoryForm = document.getElementById('update-category-form'); 
+if(updateCategoryForm) {
+    updateCategoryForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this); 
+        fetch(URLROOT + '/manageCategories/updateCategory', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(data => console.log(data))
+        .then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Category updated successfully",
+                showConfirmButton: false,
+                timer: 2500
+              });
+        })
+    })
+}
