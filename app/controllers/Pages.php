@@ -28,7 +28,10 @@ class Pages extends Controller {
 
     public function categories() {
 
-        $data = $this->categoryModel->getCategories();
+        $categories = $this->categoryModel->getCategories();
+        $data = [
+            'categories' => $categories
+        ];
         $this->view('pages/categories', $data);
     }
 }
