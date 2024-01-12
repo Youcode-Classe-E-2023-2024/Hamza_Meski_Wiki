@@ -119,3 +119,5 @@ if(CHARTS) {
 
         });
 }
+
+console.log('date')
