@@ -200,4 +200,9 @@ class Users extends Controller {
         redirect('home/index');
     }
 
+    public function getUsers() {
+        $users = $this->userModel->getUsers();
+        echo json_encode($users);
+    }
+
 }

@@ -86,4 +86,13 @@ class Post {
 
         return $this->db->execute();
     }
+
+    public function postsByEachUser() {
+        $this->db->query('  SELECT user_id, COUNT(*) AS post_count
+                            FROM posts
+                            GROUP BY user_id;
+        ');
+        
+        return $this->db->resultSet();
+    }
 }

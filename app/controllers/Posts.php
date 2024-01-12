@@ -30,7 +30,10 @@ class Posts extends Controller {
         echo json_encode($posts);
     }
 
-
+    public function getPosts() {
+        $posts = $this->postModel->getPosts();
+        echo json_encode($posts);
+    }
 
 
     /* CRUD FUNCTIONNALITIES */ 
@@ -114,6 +117,12 @@ class Posts extends Controller {
 
     public function deletePost($postId) {
         $this->postModel->deletePost($postId);
+    }
+
+    /* charts purpose */ 
+    public function postsByEachUser() {
+        $row = $this->postModel->postsByEachUser();
+        echo json_encode($row);
     }
 }
 ?>

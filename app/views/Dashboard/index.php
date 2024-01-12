@@ -45,7 +45,7 @@
         </aside>
 
         <!-- main content -->
-        <section id="content"
+        <section id="CHARTS"
             class="w-[100wh-60px] lg:w-[100wh-250px] ml-[60px] lg:ml-[240px] p-5 right-0 transition-all duration-500 ease-in-out">
             <!-- user summary -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
@@ -87,7 +87,7 @@
                 <div class="m-2 shadow-md">
                     <h2 class="text-xl p-2">Bar Chart</h2>
                     <!-- <div id="chart" class="w-full "></div> -->
-                    <div id="CHART1" class="w-full "></div>
+                    <div id="CHART1" class="w-full h-[500px]"></div>
                 </div>
             </div>
 
@@ -96,14 +96,14 @@
                 <div class="m-2 lg:col-span-1 shadow-md">
                     <h2 class="text-xl p-2">Pie Chart</h2>
                     <!-- <div id="pie_chart" class="w-full"></div> -->
-                    <div id="CHART2" class="w-full"></div>
+                    <div id="CHART2" class="w-full h-[500px]"></div>
                 </div>
 
                 <!-- candle list -->
                 <div class="m-2 lg:col-span-2 shadow-md">
                     <h2 class="text-xl p-2">Candle Stick Chart</h2>
                     <!-- <div id="candle_chart" class="w-full"></div> -->
-                    <div id="CHART3" class="w-full"></div>
+                    <div id="CHART3" class="w-full h-[500px]"></div>
                 </div>
             </div>
 
