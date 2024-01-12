@@ -52,7 +52,7 @@
             </a>
           </div>
           <h3 class="mb-4 font-semibold  text-2xl"><a href="" class="transition-all text-blue-900 hover:text-blue-600"><?php echo $data[$i]->title; ?></a></h3>
-          <p class="text-sky-800 text-sm mb-0">
+          <p class="post_content" class="text-sky-800 text-sm mb-0">
             <?php echo $data[$i]->content ?>
           </p>
         </div>
