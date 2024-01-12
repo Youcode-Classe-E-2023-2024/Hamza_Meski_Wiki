@@ -1,7 +1,8 @@
 <?php
 class Pages extends Controller {
-
+    public $categoryModel;
     public function __construct() {
+        $this->categoryModel = $this->model('Category');
     }
 
     public function index() {
@@ -26,11 +27,14 @@ class Pages extends Controller {
     }
 
     public function categories() {
+        $nmb = $this->categoryModel->postsPerCategory();
+        $categories = $this->categoryModel->getCategories();
         $data = [
-            'title' => 'Welcome about', 
-            'description' => 'App to share Posts with other users'
+            'postsPerCategory' => $nmb,
+            'categories' => $categories
         ];
         $this->view('pages/categories', $data);
     }
+
 }
 ?>

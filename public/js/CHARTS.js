@@ -1,5 +1,15 @@
 const CHARTS = document.getElementById('CHARTS');
 if(CHARTS) {
+    /************ top data  ***************/
+    const totalUsers = document.getElementById('total-users'); 
+    const totalWikies = document.getElementById('total-wikies'); 
+    const more30 = document.getElementById('more-30');
+    const archivedPosts = document.getElementById('archived-posts');
+    fetch(URLROOT + '/users/getUsers').then(res => res.json()).then(data => totalUsers.textContent = data.length) // totalUsers.textContent = data.length
+    fetch(URLROOT + '/posts/getPosts').then(res => res.json()).then(data => totalWikies.textContent = data.length) // totalWikies.textContent = data.length
+    // fetch(ROOL + 'users/more30').then(res => res.json()).then(data => more30.textContent = data.length)
+    // fetch(ROOL + 'users/getUsers').then(res => res.json()).then(data => archivedPosts.textContent = data.length)
+
     /************ Fetch users and posts data ***************/
     const usersPromise = fetch(URLROOT + '/Users/getUsers').then(response => response.json());
     const postsPromise = fetch(URLROOT + '/Posts/getPosts').then(response => response.json());
@@ -7,9 +17,6 @@ if(CHARTS) {
     /************ graph1  **************/
     Promise.all([usersPromise, postsPromise])
         .then(([users, posts]) => {
-            console.log(users); 
-            console.log(posts);
-            // Create a mapping of user IDs to post counts
             const userPostCount = {};
             posts.forEach(post => {
                 if (userPostCount[post.user_id]) {
@@ -19,11 +26,9 @@ if(CHARTS) {
                 }
             });
             
-            // Extract relevant data for the plot
-            const usernames = users.map(user => user.name); // Use 'name' instead of 'username'
+            const usernames = users.map(user => user.name); 
             const postCounts = usernames.map(username => userPostCount[users.find(user => user.name === username).id] || 0); // Use 'name' instead of 'username'
             
-            // Create a bar chart using Plotly
             const trace = {
                 x: usernames,
                 y: postCounts,
@@ -61,7 +66,6 @@ if(CHARTS) {
     /************ graph2  **************/
     Promise.all([usersPromise, postsPromise])
         .then(([users, posts]) => {
-            // Create a mapping of user IDs to post counts
             const userPostCount = {};
             posts.forEach(post => {
                 if (userPostCount[post.user_id]) {
@@ -71,11 +75,9 @@ if(CHARTS) {
                 }
             });
             
-            // Extract relevant data for the pie chart
-            const usernames = users.map(user => user.name); // Use 'name' instead of 'username'
+            const usernames = users.map(user => user.name); 
             const postCounts = usernames.map(username => userPostCount[users.find(user => user.name === username).id] || 0); // Use 'name' instead of 'username'
             
-            // Create a pie chart using Plotly
             const trace = {
                 labels: usernames,
                 values: postCounts,
@@ -99,19 +101,17 @@ if(CHARTS) {
         /************ graph3  **************/
         Promise.all([postsPromise])
         .then(([posts]) => {
-            // Assuming 'posts' is your data array
             const candlestickData = posts.map(post => ({
-                x: [post.created_at],  // Assuming 'created_at' is a valid timestamp
-                close: [post.created_at],  // You can modify this based on your data
-                high: [post.created_at],   // You can modify this based on your data
-                low: [post.created_at],    // You can modify this based on your data
-                open: [post.created_at],   // You can modify this based on your data
+                x: [post.created_at],  //
+                close: [post.created_at],  
+                high: [post.created_at],  
+                low: [post.created_at],   
+                open: [post.created_at],   
                 type: 'candlestick',
                 name: `Post ${post.id}`,
                 showlegend: false,
             }));
 
-            // Create a layout for the candlestick chart
             const layout = {
                 title: 'Candlestick Chart of Post Creation Dates',
                 xaxis: {
@@ -123,8 +123,8 @@ if(CHARTS) {
                 },
             };
 
-            // Plot the candlestick chart
             Plotly.newPlot('CHART3', candlestickData, layout);
 
         });
+
 }

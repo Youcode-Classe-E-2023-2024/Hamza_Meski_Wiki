@@ -7,7 +7,7 @@ class Category {
     }
 
     public function getCategories() {
-        $this->db->query("SELECT * FROM categories");
+        $this->db->query("SELECT * FROM categories ORDER BY created_at DESC");
 
         return $this->db->resultSet();
     }
@@ -62,5 +62,14 @@ class Category {
         }else {
             return false;
         }
+    }
+
+    public function postsPerCategory() {
+        $this->db->query("  SELECT category_id, COUNT(*) AS post_count
+                            FROM posts
+                            GROUP BY category_id;
+        ");
+
+        return $this->db->resultSet();
     }
 }
