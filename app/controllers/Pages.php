@@ -27,10 +27,14 @@ class Pages extends Controller {
     }
 
     public function categories() {
-        $nmb = $this->categoryModel->postsPerCategory();
-        $categories = $this->categoryModel->getCategories();
+        $categories = $this->categoryModel->postsPerCategory();
+        foreach($categories as $category) {
+            $fetched_category = $this->categoryModel->getCategoryById($category->category_id);
+            $category->name = $fetched_category->name;
+            $category->image_name = $fetched_category->image_name;
+            $category->created_at = $fetched_category->created_at;
+        }
         $data = [
-            'postsPerCategory' => $nmb,
             'categories' => $categories
         ];
         $this->view('pages/categories', $data);
