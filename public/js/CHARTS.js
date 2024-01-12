@@ -1,5 +1,15 @@
 const CHARTS = document.getElementById('CHARTS');
 if(CHARTS) {
+    /************ top data  ***************/
+    const totalUsers = document.getElementById('total-users'); 
+    const totalWikies = document.getElementById('total-wikies'); 
+    const more30 = document.getElementById('more-30');
+    const archivedPosts = document.getElementById('archived-posts');
+    fetch(URLROOT + '/users/getUsers').then(res => res.json()).then(data => totalUsers.textContent = data.length) // totalUsers.textContent = data.length
+    fetch(URLROOT + '/posts/getPosts').then(res => res.json()).then(data => totalWikies.textContent = data.length) // totalWikies.textContent = data.length
+    // fetch(ROOL + 'users/more30').then(res => res.json()).then(data => more30.textContent = data.length)
+    // fetch(ROOL + 'users/getUsers').then(res => res.json()).then(data => archivedPosts.textContent = data.length)
+
     /************ Fetch users and posts data ***************/
     const usersPromise = fetch(URLROOT + '/Users/getUsers').then(response => response.json());
     const postsPromise = fetch(URLROOT + '/Posts/getPosts').then(response => response.json());
@@ -118,6 +128,7 @@ if(CHARTS) {
             Plotly.newPlot('CHART3', candlestickData, layout);
 
         });
+
 }
 
 console.log('date')
