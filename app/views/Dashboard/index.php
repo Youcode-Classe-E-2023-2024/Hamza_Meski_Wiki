@@ -96,7 +96,7 @@
                 <div class="m-2 lg:col-span-1 shadow-md">
                     <h2 class="text-xl p-2">Pie Chart</h2>
                     <!-- <div id="pie_chart" class="w-full"></div> -->
-                    <div id="CHART2" class="w-full"></div>
+                    <div id="CHART2" class="w-full h-[500px]"></div>
                 </div>
 
                 <!-- candle list -->

@@ -58,4 +58,41 @@ if(CHARTS) {
         })
         .catch(error => console.error('Error fetching data:', error));
     
+    /************ graph2  **************/
+    Promise.all([usersPromise, postsPromise])
+        .then(([users, posts]) => {
+            // Create a mapping of user IDs to post counts
+            const userPostCount = {};
+            posts.forEach(post => {
+                if (userPostCount[post.user_id]) {
+                    userPostCount[post.user_id]++;
+                } else {
+                    userPostCount[post.user_id] = 1;
+                }
+            });
+            
+            // Extract relevant data for the pie chart
+            const usernames = users.map(user => user.name); // Use 'name' instead of 'username'
+            const postCounts = usernames.map(username => userPostCount[users.find(user => user.name === username).id] || 0); // Use 'name' instead of 'username'
+            
+            // Create a pie chart using Plotly
+            const trace = {
+                labels: usernames,
+                values: postCounts,
+                type: 'pie',
+                textinfo: 'percent+label',
+                insidetextorientation: 'radial'
+            };
+            
+            const layout = {
+                title: 'Distribution of Posts Among Users'
+            };
+            
+            const config = { responsive: true };
+            
+            // Plot the chart
+            Plotly.newPlot('CHART2', [trace], layout, config);
+            
+        })
+        .catch(error => console.error('Error fetching data:', error));
 }
