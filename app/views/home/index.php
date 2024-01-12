@@ -15,15 +15,15 @@
   
   <div class="m-10 flex flex-col items-center mx-auto max-w-screen-lg">
     <!-- search bar component -->
-    <form id="search-form" class="flex items-center">   
-        <select id="category" name="search_by" class="form-select py-2 px-4 block leading-5 rounded-tl-md rounded-bl-md transition duration-150 ease-in-out sm:text-sm sm:leading-5 w-5 h-full">
+    <form id="search-form" class="flex  bg-blue-600 p-2">   
+        <select id="category" name="search_by" class="form-select py-2 px-4 block leading-5 rounded-tl-md rounded-bl-md transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     <option value="title">title</option>
                     <option value="category">category</option>
                     <option value="tag">tag</option>
                     <!-- Add more options as needed -->
         </select>
         <div class="relative w-full cursor-pointer">
-            <input name="search_input" type="text" id="simple-search" class="rounded-tr-md rounded-br-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search branch name..." required>
+            <input name="search_input" type="text" id="simple-search" class="rounded-tr-md rounded-br-md  border  text-sm focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search branch name..." required>
         </div>
         <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -32,7 +32,7 @@
         </button>
     </form>
     <!-- search -->
-    
+     
     <div class="header flex w-full justify-center">
       <h2 class="font-black pb-10 mb-20 text-5xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">Dernier articles</h2>
     </div>
