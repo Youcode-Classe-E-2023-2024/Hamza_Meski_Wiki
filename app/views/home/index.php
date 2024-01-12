@@ -39,7 +39,7 @@
     </div>
     <div class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
       <!--  -->
-      <?php for($i = 0; $i < 6; $i++): ?>
+      <?php for($i = 0; $i < count($data); $i++): ?>
       <div class="bg-white w-full rounded-lg shadow-md flex flex-col transition-all overflow-hidden hover:shadow-2xl">
         <div class="  p-6">
 
