@@ -7,7 +7,7 @@ class Category {
     }
 
     public function getCategories() {
-        $this->db->query("SELECT * FROM categories");
+        $this->db->query("SELECT * FROM categories ORDER BY created_at DESC");
 
         return $this->db->resultSet();
     }

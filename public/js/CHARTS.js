@@ -17,8 +17,6 @@ if(CHARTS) {
     /************ graph1  **************/
     Promise.all([usersPromise, postsPromise])
         .then(([users, posts]) => {
-            console.log(users); 
-            console.log(posts);
             const userPostCount = {};
             posts.forEach(post => {
                 if (userPostCount[post.user_id]) {
