@@ -52,7 +52,7 @@
                 <div class="bg-slate-50 p-5 m-2 rounded-md flex justify-between items-center shadow">
                     <div>
                         <h3 class="font-bold">Total Users</h3>
-                        <p class="text-gray-500">100</p>
+                        <p id="total-users" class="text-gray-500">100</p>
                     </div>
                     <i class="fa-solid fa-users p-4 bg-gray-200 rounded-md"></i>
                 </div>
@@ -60,7 +60,7 @@
                 <div class="bg-slate-50 p-5 m-2 flex justify-between items-center shadow">
                     <div>
                         <h3 class="font-bold">Total Wikis</h3>
-                        <p class="text-gray-500">65</p>
+                        <p id="total-wikies" class="text-gray-500">65</p>
                     </div>
                     <i class="fa-solid fa-users p-4 bg-green-200 rounded-md"></i>
                 </div>
@@ -68,15 +68,15 @@
                 <div class="bg-slate-50 p-5 m-2 flex justify-between items-center shadow">
                     <div>
                         <h3 class="font-bold">Users with more 30 wikis</h3>
-                        <p class="text-gray-500">30</p>
+                        <p id="more-30" class="text-gray-500">30</p>
                     </div>
                     <i class="fa-solid fa-users p-4 bg-yellow-200 rounded-md"></i>
                 </div>
 
                 <div class="bg-slate-50 p-5 m-2 flex justify-between items-center shadow">
                     <div>
-                        <h3 class="font-bold">Archived Users</h3>
-                        <p class="text-gray-500">5</p>
+                        <h3 class="font-bold">Archived Posts</h3>
+                        <p id="archived-posts" class="text-gray-500">5</p>
                     </div>
                     <i class="fa-solid fa-users p-4 bg-red-200 rounded-md"></i>
                 </div>
