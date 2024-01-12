@@ -27,12 +27,14 @@ class Pages extends Controller {
     }
 
     public function categories() {
-
+        $nmb = $this->categoryModel->postsPerCategory();
         $categories = $this->categoryModel->getCategories();
         $data = [
+            'postsPerCategory' => $nmb,
             'categories' => $categories
         ];
         $this->view('pages/categories', $data);
     }
+
 }
 ?>

@@ -1,4 +1,9 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+<?php 
+echo '<pre>'; 
+print_r($data['postsPerCategory']);
+echo '</pre>';
+?>
 <!-- component -->
 <div class="lg:px-36 mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <?php foreach($data['categories'] as $category): ?>

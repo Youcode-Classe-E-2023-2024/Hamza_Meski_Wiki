@@ -63,4 +63,13 @@ class Category {
             return false;
         }
     }
+
+    public function postsPerCategory() {
+        $this->db->query("  SELECT category_id, COUNT(*) AS post_count
+                            FROM posts
+                            GROUP BY category_id;
+        ");
+
+        return $this->db->resultSet();
+    }
 }
