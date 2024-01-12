@@ -17,10 +17,9 @@ class Home extends Controller {
         $this->view('home/index', $data);
     }
     
-    public function filtered_index() {
-        echo '<pre>'; 
-        print_r($_POST); 
-        echo '</pre>';
+    public function filteredIndex() {
+        $data = $this->postModel->getPosts();
+        $this->view('home/filteredIndex', $data);
     }
 
     public function postSection($postId) {
