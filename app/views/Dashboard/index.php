@@ -103,7 +103,7 @@
                 <div class="m-2 lg:col-span-2 shadow-md">
                     <h2 class="text-xl p-2">Candle Stick Chart</h2>
                     <!-- <div id="candle_chart" class="w-full"></div> -->
-                    <div id="CHART3" class="w-full"></div>
+                    <div id="CHART3" class="w-full h-[500px]"></div>
                 </div>
             </div>
 

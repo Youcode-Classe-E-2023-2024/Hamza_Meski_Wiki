@@ -95,4 +95,36 @@ if(CHARTS) {
             
         })
         .catch(error => console.error('Error fetching data:', error));
+
+        /************ graph3  **************/
+        Promise.all([postsPromise])
+        .then(([posts]) => {
+            // Assuming 'posts' is your data array
+            const candlestickData = posts.map(post => ({
+                x: [post.created_at],  // Assuming 'created_at' is a valid timestamp
+                close: [post.created_at],  // You can modify this based on your data
+                high: [post.created_at],   // You can modify this based on your data
+                low: [post.created_at],    // You can modify this based on your data
+                open: [post.created_at],   // You can modify this based on your data
+                type: 'candlestick',
+                name: `Post ${post.id}`,
+                showlegend: false,
+            }));
+
+            // Create a layout for the candlestick chart
+            const layout = {
+                title: 'Candlestick Chart of Post Creation Dates',
+                xaxis: {
+                    title: 'Date',
+                    type: 'category',
+                },
+                yaxis: {
+                    title: 'Post',
+                },
+            };
+
+            // Plot the candlestick chart
+            Plotly.newPlot('CHART3', candlestickData, layout);
+
+        });
 }
