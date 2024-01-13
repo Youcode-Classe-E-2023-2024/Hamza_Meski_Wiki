@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-    <div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-xl">
+    <div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-xl mt-24 border border-solid">
         <h2 class="text-2xl font-semibold mb-4">Create An Account</h2>
         <p class="text-gray-600 mb-6">Please fill out this form to register with us</p>
         <form id="register-form">

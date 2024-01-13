@@ -25,4 +25,5 @@
 </head>
 <body>
     <?php require APPROOT.'/views/inc/navbar.php'; ?>
-    <div class="container mt-32 ">
+    <!-- style="background-image: url('<?php echo URLROOT ?>/images/wiki_bg.jpg'); background-size: cover;" -->
+    <div class="container min-h-screen ">

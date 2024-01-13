@@ -13,6 +13,7 @@ if(CHARTS) {
     /************ Fetch users and posts data ***************/
     const usersPromise = fetch(URLROOT + '/Users/getUsers').then(response => response.json());
     const postsPromise = fetch(URLROOT + '/Posts/getPosts').then(response => response.json());
+    const categoriesPromise = fetch(URLROOT + '/ManageCategories/getCategories').then(response => response.json());
     
     /************ graph1  **************/
     Promise.all([usersPromise, postsPromise])
@@ -64,22 +65,24 @@ if(CHARTS) {
         .catch(error => console.error('Error fetching data:', error));
     
     /************ graph2  **************/
-    Promise.all([usersPromise, postsPromise])
-        .then(([users, posts]) => {
-            const userPostCount = {};
+    Promise.all([categoriesPromise, postsPromise])
+        .then(([categories, posts]) => {
+            console.log(categories); 
+            console.log(posts);
+            const categoryPostCount = {};
             posts.forEach(post => {
-                if (userPostCount[post.user_id]) {
-                    userPostCount[post.user_id]++;
+                if (categoryPostCount[post.category_id]) {
+                    categoryPostCount[post.category_id]++;
                 } else {
-                    userPostCount[post.user_id] = 1;
+                    categoryPostCount[post.category_id] = 1;
                 }
             });
             
-            const usernames = users.map(user => user.name); 
-            const postCounts = usernames.map(username => userPostCount[users.find(user => user.name === username).id] || 0); // Use 'name' instead of 'username'
+            const categorynames = categories.map(category => category.name); 
+            const postCounts = categorynames.map(categoryname => categoryPostCount[categories.find(category => category.name === categoryname).id] || 0); // Use 'name' instead of 'username'
             
             const trace = {
-                labels: usernames,
+                labels: categorynames,
                 values: postCounts,
                 type: 'pie',
                 textinfo: 'percent+label',
@@ -87,7 +90,7 @@ if(CHARTS) {
             };
             
             const layout = {
-                title: 'Distribution of Posts Among Users'
+                title: 'Distribution of Posts Among Categories'
             };
             
             const config = { responsive: true };
