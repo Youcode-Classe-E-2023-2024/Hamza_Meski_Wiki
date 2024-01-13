@@ -53,43 +53,49 @@ if(postsIndex){
             "ajax": {
                 "url": URLROOT + '/Posts/getPostsByUserId',
                 "dataSrc": "",
-                // "data": formData,
                 "type": 'GET',
             },
             "columns": [
-                {"data": "id"},
-                {"data": "title"},
+                {
+                    "data": "id",
+                    "render": function(data) {
+                        return `<div class="text-center text-blue-500 bg-blue-100 p-2 rounded">${data}</div>`;
+                    }
+                },
+                {
+                    "data": "title",
+                    "render": function(data) {
+                        return `<div class="text-center font-bold text-green-700 bg-green-100 p-2 rounded">${data}</div>`;
+                    }
+                },
                 {
                     "data": "content",
-                    "render": function (data) {
-                        // Set the maximum length for the content
+                    "render": function(data) {
                         var maxLength = 60;
     
-                        // Truncate the content if it exceeds the maximum length
                         var truncated = data.length > maxLength ? data.substr(0, maxLength) + '...' : data;
     
-                        // Return the truncated content
-                        return truncated;
+                        return `<div class="text-center text-purple-500 bg-purple-100 p-2 rounded">${truncated}</div>`;
                     }
                 },
                 {
                     "data": "image_name",
-                    "render": function (data) {
+                    "render": function(data) {
                         var imageName = data.split('_');
-    
-                        return imageName[1];
+                        return `<div class="text-center text-purple-500 bg-purple-100 p-2 rounded">${imageName[1]}</div>`;
                     }
                 },
                 {
-                    data: 'id',
-                    render: function(data) {
-                        return `<div class="flex">
-                                    <button onclick="deletePost(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600 mr-2">delete</button>
-                                    <button onclick="postIdAgent(${data})" data-modal-target="edit-modal" data-modal-toggle="edit-modal" onclick="displayEditModel(${data})" name="btn" class="bg-blue-500 p-2 rounded-md text-white hover:bg-blue-600 mr-2">update</button>
+                    "data": 'id',
+                    "render": function(data) {
+                        return `<div class="flex justify-center">
+                                    <button onclick="deletePost(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600 mr-2">Delete</button>
+                                    <button onclick="postIdAgent(${data})" data-modal-target="edit-modal" data-modal-toggle="edit-modal" onclick="displayEditModel(${data})" name="btn" class="bg-blue-500 p-2 rounded-md text-white hover:bg-blue-600 mr-2">Update</button>
                                 </div>`;
                     }
                 }
             ]
         }); 
     });
+    
 } 

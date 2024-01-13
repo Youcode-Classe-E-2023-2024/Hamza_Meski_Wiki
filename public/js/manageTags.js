@@ -54,30 +54,24 @@ if(manageTagsIndex){
                 {
                     "data": "id",
                     "render": function(data, type, row) {
-                        // Use 'type' parameter to determine rendering type
                         if (type === 'display') {
-                            // Custom rendering for display type
                             return `<div class="flex justify-center">
                                         <span class="bg-green-500 h-10 w-10 p-2 rounded-full text-center text-white">${data}</span>
                                     </div>`;
                         }
             
-                        // For other types, return the raw data
                         return data;
                     }
                 },
                 {
                     "data": "name",
                     "render": function(data, type, row) {
-                        // Use 'type' parameter to determine rendering type
                         if (type === 'display') {
-                            // Custom rendering for display type
                             return `<div class="flex justify-center bg-gray-500 p-4 text-white">
                                         <strong>${data}</strong>
                                     </div>`;
                         }
             
-                        // For other types, return the raw data
                         return data;
                     }
                 },
