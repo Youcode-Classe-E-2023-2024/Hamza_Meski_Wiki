@@ -5,7 +5,7 @@
         <!-- left sidebar -->
         <aside id="sidebar"
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">
-            <div class="flex flex-col justify-between h-full border-blue-500 border-solid">
+            <div class="flex flex-col justify-between h-full border border-blue-500 border-solid">
                 <ul class="flex flex-col gap-1 mt-2">
                     
                     <li data-modal-target="create-modal" data-modal-toggle="create-modal" class="text-blue-500 hover:bg-blue-100 hover:text-blue-500">
