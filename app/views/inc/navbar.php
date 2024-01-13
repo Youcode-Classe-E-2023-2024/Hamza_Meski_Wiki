@@ -1,4 +1,4 @@
-<nav class="bg-gray-800 p-4 fixed top-0 w-full z-10">
+<nav class="bg-blue-500 p-4 fixed top-0 w-full z-10">
     <!-- <a href="<?php echo URLROOT; ?>" class="text-white text-lg font-bold">Logo</a> -->
 
     <div class="flex">

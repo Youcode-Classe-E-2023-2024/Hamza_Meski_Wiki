@@ -1,29 +1,20 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
     <!-- main content -->
-    <main id="manageTags-index" class="">
+    <main id="manageTags-index" class="mt-24">
         <!-- left sidebar -->
         <aside id="sidebar"
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">
-            <div class="flex flex-col justify-between h-full">
+            <div class="flex flex-col justify-between h-full border border-blue-500 border-solid">
                 <ul class="flex flex-col gap-1 mt-2">
                     
-                    <li data-modal-target="create-tag" data-modal-toggle="create-tag" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
+                    <li data-modal-target="create-tag" data-modal-toggle="create-tag" class="text-blue-500 hover:bg-blue-100 hover:text-blue-500">
                         <a class="w-full flex items-center py-3" href="#">
                         <i class="fa-solid fa-folder text-center px-5"></i>
                             <span class="whitespace-nowrap pl-1">Create Tag</span>
                         </a>
                     </li>
           
-                </ul>
-
-                <ul class="flex flex-col gap-1 mt-2">
-                    <li class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
-                        <a class="w-full flex items-center py-3" href="#">
-                            <i class="fa-solid fa-right-from-bracket text-center px-5"></i>
-                            <span class="pl-1">Logout</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </aside>
@@ -105,9 +96,9 @@
             <table id="tagsTable" class="">
                 <thead class="bg-gray-200 text-gray-700">
                     <tr>
-                        <th class="py-3 px-4">Id</th>
-                        <th class="py-3 px-4">name</th>
-                        <th class="py-3 px-4">Action</th>
+                        <th class="py-3 px-4 align-middle">Id</th>
+                        <th class="py-3 px-4 align-middle">Name</th>
+                        <th class="py-3 px-4 align-middle">Action</th>
                     </tr>
                 </thead>
                 <tbody>

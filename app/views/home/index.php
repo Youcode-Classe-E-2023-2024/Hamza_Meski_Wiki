@@ -6,7 +6,7 @@
   <div class="m-10 flex flex-col items-center mx-auto max-w-screen-lg">
      
     <div class="header flex w-full justify-center">
-      <h2 class="font-black pb-10 mb-20 text-5xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">Dernier articles</h2>
+    <h1 class="text-center pb-4 font-black mb-20 text-3xl text-blue-500 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">LAST POSTS </h1>
     </div>
     <div class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
       <!--  -->
@@ -24,8 +24,8 @@
                   Read More
                 </a>
               </div>
-              <h3 class="mb-4 font-semibold  text-2xl"><a href="" class="transition-all text-blue-900 hover:text-blue-600"><?php echo $data[$i]->title; ?></a></h3>
-              <p class="post_content" class="text-sky-800 text-sm mb-0">
+              <h3 class="mb-4 font-semibold  text-2xl"><a href="" class="transition-all text-blue-500 hover:text-blue-600"><?php echo $data[$i]->title; ?></a></h3>
+              <p class="post_content" class="text-sky-500 text-sm mb-0">
                 <?php echo $data[$i]->content ?>
               </p>
             </div>
@@ -38,9 +38,7 @@
       <!--  -->
 
     </div>
-    <div class="header flex w-full justify-center">
-      <a href="<?php echo URLROOT; ?>/home/filteredIndex" class="pb-10 mb-20 text-2xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3 mt-10 ">Read More</a>
-    </div>
+    <a href="<?php echo URLROOT; ?>/home/filteredIndex" class="pb-10 mb-20 mt-16 text-blue-500 text-1xl">Read More</a>
   </div>
 </div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

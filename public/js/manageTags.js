@@ -41,28 +41,53 @@ if(manageTagsIndex){
         )
     }
     
-    $(document).ready(function(){
+    $(document).ready(function() {
         // Initialize DataTable
         $('#tagsTable').DataTable({
+            "lengthChange": false,
             "ajax": {
                 "url": URLROOT + '/ManageTags/getTags',
                 "dataSrc": "",
-                // "data": formData,
                 "type": 'GET',
             },
             "columns": [
-                {"data": "id"},
-                {"data": "name"},
                 {
-                    data: 'id',
-                    render: function(data) {
-                        return `<div class="flex">
-                                    <button onclick="deleteTag(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600 mr-2">delete</button>
-                                    <button data-modal-target="edit-tag" data-modal-toggle="edit-tag" onclick="tagIdAgent(${data})" data-modal-target="edit-modal" data-modal-toggle="edit-modal" onclick="displayEditModel(${data})" name="btn" class="bg-blue-500 p-2 rounded-md text-white hover:bg-blue-600 mr-2">update</button>
+                    "data": "id",
+                    "render": function(data, type, row) {
+                        if (type === 'display') {
+                            return `<div class="flex items-center justify-center">
+                                        <span class="text-center w-full text-blue-500 bg-blue-100 p-2 rounded">${data}</span>
+                                    </div>`;
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "data": "name",
+                    "render": function(data, type, row) {
+                        if (type === 'display') {
+                            return `<div class="text-center font-bold text-green-500 bg-green-100 p-2 rounded">
+                                        <strong>${data}</strong>
+                                    </div>`;
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "data": 'id',
+                    "render": function(data) {
+                        return `<div class="flex space-x-2 justify-center">
+                                    <button onclick="deleteTag(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600">Delete</button>
+                                    <button data-modal-target="edit-tag" data-modal-toggle="edit-tag" onclick="tagIdAgent(${data})" data-modal-target="edit-modal" data-modal-toggle="edit-modal" onclick="displayEditModel(${data})" name="btn" class="bg-blue-500 p-2 rounded-md text-white hover:bg-blue-600">Update</button>
                                 </div>`;
                     }
                 }
-            ]
-        }); 
+            ],
+            "createdRow": function(row) {
+                $(row).addClass('hover:bg-sky-200');
+            },
+        });
     });
+    
+    
 }

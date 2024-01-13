@@ -1,15 +1,15 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <!-- component -->
-<div class="relative flex min-h-screen flex-col justify-center overflow-hidden  py-6 sm:py-12">
+<div class="relative flex min-h-screen flex-col justify-center overflow-hidden  py-6 sm:py-12 mt-24">
   <div class="w-full items-center mx-auto max-w-screen-lg">
     <div class="group grid w-full grid-cols-2">
        <div>
         <div class="pr-12">
-          <p class="peer mb-6 text-gray-400">
+          <p class="peer mb-6 text-black">
             <?php echo $data['post']->content; ?>
           </p>
-          <h3 class="mb-4 font-semibold text-xl text-gray-400">tags</h3>
-          <ul role="list" class="marker:text-sky-400 list-disc pl-5 space-y-3 text-slate-500">
+          <h3 class="mb-4 font-semibold text-xl text-black">tags</h3>
+          <ul role="list" class="marker:text-sky-400 list-disc pl-5 space-y-3 text-slate-900">
             <?php foreach($data['postTags'] as $postTag) :?>
                 <li><?php echo $postTag->name; ?></li>
             <?php endforeach; ?>
