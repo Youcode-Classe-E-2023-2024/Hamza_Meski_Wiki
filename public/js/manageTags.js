@@ -56,7 +56,7 @@ if(manageTagsIndex){
                     "render": function(data, type, row) {
                         if (type === 'display') {
                             return `<div class="flex items-center justify-center">
-                                        <span class="bg-green-500 h-10 w-10 p-2 rounded-full text-center text-white">${data}</span>
+                                        <span class="text-center w-full text-blue-500 bg-blue-100 p-2 rounded">${data}</span>
                                     </div>`;
                         }
                         return data;
@@ -66,7 +66,7 @@ if(manageTagsIndex){
                     "data": "name",
                     "render": function(data, type, row) {
                         if (type === 'display') {
-                            return `<div class="text-center font-bold text-green-700 bg-green-100 p-2 rounded">
+                            return `<div class="text-center font-bold text-green-500 bg-green-100 p-2 rounded">
                                         <strong>${data}</strong>
                                     </div>`;
                         }
@@ -83,8 +83,8 @@ if(manageTagsIndex){
                     }
                 }
             ],
-            "createdRow": function(row, data, dataIndex) {
-                $(row).addClass('hover:bg-gray-100');
+            "createdRow": function(row) {
+                $(row).addClass('hover:bg-sky-200');
             },
         });
     });

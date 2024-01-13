@@ -79,7 +79,10 @@ if(manageCategoriesIndex){
                                 </div>`;
                     }
                 }
-            ], 
+            ],
+            "createdRow": function(row) {
+                $(row).addClass('hover:bg-sky-200');
+            },
         }); 
     });
     
