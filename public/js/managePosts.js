@@ -49,6 +49,7 @@ if(postsIndex){
     $(document).ready(function(){
         // Initialize DataTable
         $('#postsTable').DataTable({
+            "lengthChange": false,
             "ajax": {
                 "url": URLROOT + '/Posts/getPostsByUserId',
                 "dataSrc": "",

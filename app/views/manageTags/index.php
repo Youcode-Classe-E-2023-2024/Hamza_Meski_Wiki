@@ -105,9 +105,9 @@
             <table id="tagsTable" class="">
                 <thead class="bg-gray-200 text-gray-700">
                     <tr>
-                        <th class="py-3 px-4">Id</th>
-                        <th class="py-3 px-4">name</th>
-                        <th class="py-3 px-4">Action</th>
+                        <th class="py-3 px-4 align-middle">Id</th>
+                        <th class="py-3 px-4 align-middle">Name</th>
+                        <th class="py-3 px-4 align-middle">Action</th>
                     </tr>
                 </thead>
                 <tbody>

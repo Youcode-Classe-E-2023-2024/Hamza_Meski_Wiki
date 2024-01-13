@@ -111,7 +111,7 @@
             </div> 
             <!-- flow bite structure end -->
 
-            <table id="categoriesTable" class="">
+            <table id="categoriesTable" class="h-[500px]">
                 <thead class="bg-gray-200 text-gray-700">
                     <tr>
                         <th class="py-3 px-4">Id</th>

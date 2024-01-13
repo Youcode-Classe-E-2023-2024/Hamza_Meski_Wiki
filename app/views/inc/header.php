@@ -25,4 +25,4 @@
 </head>
 <body>
     <?php require APPROOT.'/views/inc/navbar.php'; ?>
-    <div class="container mt-32 ">
+    <div class="container ">
