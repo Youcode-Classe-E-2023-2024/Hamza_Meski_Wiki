@@ -29,15 +29,6 @@ class Home extends Controller {
         }
     }
     
-    public function dis() {
-        if(isset($_POST['data'])) {
-            $data = json_decode($_POST['data']);
-            echo '<pre>';
-            print_r($data[0]->title);
-            echo '</pre>';
-        }
-    }
-
     public function search() {
         // fitler
         if($_POST['search_by'] == 'title') {
