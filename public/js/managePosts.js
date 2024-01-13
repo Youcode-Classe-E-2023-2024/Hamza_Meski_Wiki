@@ -58,8 +58,27 @@ if(postsIndex){
             "columns": [
                 {"data": "id"},
                 {"data": "title"},
-                {"data": "content"},
-                {"data": "image_name"},
+                {
+                    "data": "content",
+                    "render": function (data) {
+                        // Set the maximum length for the content
+                        var maxLength = 60;
+    
+                        // Truncate the content if it exceeds the maximum length
+                        var truncated = data.length > maxLength ? data.substr(0, maxLength) + '...' : data;
+    
+                        // Return the truncated content
+                        return truncated;
+                    }
+                },
+                {
+                    "data": "image_name",
+                    "render": function (data) {
+                        var imageName = data.split('_');
+    
+                        return imageName[1];
+                    }
+                },
                 {
                     data: 'id',
                     render: function(data) {

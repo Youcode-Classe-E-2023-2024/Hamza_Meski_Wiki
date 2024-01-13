@@ -53,7 +53,14 @@ if(manageCategoriesIndex){
             "columns": [
                 {"data": "id"},
                 {"data": "name"},
-                {"data": "image_name"},
+                {
+                    "data": "image_name",
+                    "render": function (data) {
+                        var imageName = data.split('_');
+    
+                        return imageName[1];
+                    }
+                },
                 {
                     data: 'id',
                     render: function(data) {
