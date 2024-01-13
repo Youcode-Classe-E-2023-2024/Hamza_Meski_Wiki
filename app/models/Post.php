@@ -7,7 +7,7 @@ class Post {
     }
 
     public function getPosts() {
-        $this->db->query("SELECT * FROM posts");
+        $this->db->query("SELECT * FROM posts ORDER BY created_at DESC");
 
         return $this->db->resultSet();
     }
@@ -94,5 +94,24 @@ class Post {
         ');
         
         return $this->db->resultSet();
+    }
+
+    // category search filter function 
+    public function getPostsByCategoryId($category_id) {
+        $this->db->query('SELECT * FROM posts WHERE category_id = :category_id'); 
+        $this->db->bind(':category_id', $category_id);
+
+        $row = $this->db->resultSet();
+
+        return $row;
+    }
+
+    public function getPostsByTitle($title) {
+        $this->db->query('SELECT * FROM posts WHERE title = :title'); 
+        $this->db->bind(':title', $title);
+
+        $row = $this->db->resultSet();
+
+        return $row;
     }
 }

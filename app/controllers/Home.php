@@ -4,17 +4,59 @@ class Home extends Controller {
     public $postModel;
     public $categoryModel;
     public $tagModel; 
+    public $postTagModel;
 
     public function __construct() {
         $this->userModel = $this->model('User');
         $this->postModel = $this->model('Post');
         $this->categoryModel = $this->model('Category');
         $this->tagModel = $this->model('Tag');
+        $this->postTagModel = $this->model('PostTag');
     }
 
     public function index() {
         $data = $this->postModel->getPosts();
         $this->view('home/index', $data);
+    }
+    
+    public function filteredIndex() {
+        if(isset($_POST['data'])) {
+            $data = json_decode($_POST['data']);
+           $this->view('home/searchContent', $data);
+        }else {
+            $data = $this->postModel->getPosts();
+            $this->view('home/filteredIndex', $data);
+        }
+    }
+    
+    public function search() {
+        // fitler
+        if($_POST['search_by'] == 'title') {
+            echo json_encode($this->postModel->getPostsByTitle($_POST['search_input']));
+
+        }else if($_POST['search_by'] == 'category') {
+            $category = $this->categoryModel->getCategoryByName($_POST['search_input']);
+            if(isset($category->id)) {
+                $posts = $this->postModel->getPostsByCategoryId($category->id);
+                echo json_encode($posts);
+            }else {
+                echo json_encode([]);
+            }
+
+        }else if($_POST['search_by'] == 'tag') {
+            $tag = $this->tagModel->getTagByName($_POST['search_input']);
+            if(isset($tag->id)) {
+                $posts = $this->postTagModel->getPostsByTagId($tag->id);
+                $store_comp_posts = [];
+                foreach($posts as $post) {
+                    $store_comp_posts[] = $this->postModel->getPostByPostId($post->post_id);
+                };
+                echo json_encode($store_comp_posts); 
+            }else{
+                echo json_encode([]);
+            }
+
+        }
     }
 
     public function postSection($postId) {
