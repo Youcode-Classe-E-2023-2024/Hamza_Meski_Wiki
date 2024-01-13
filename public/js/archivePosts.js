@@ -38,7 +38,7 @@ if(archiveIndex){
             "columns": [
                 {
                     "data": "id",
-                    "render": function(data) {
+                    "render": function(data, type) {
                         if (type === 'display') {
                             return `<div class="flex items-center justify-center">
                                         <span class="text-center w-full text-blue-500 bg-blue-100 p-2 rounded">${data}</span>
@@ -48,8 +48,8 @@ if(archiveIndex){
                     }
                 },
                 {
-                    "data": "name",
-                    "render": function(data) {
+                    "data": "title",
+                    "render": function(data, type) {
                         if (type === 'display') {
                             return `<div class="text-center font-bold text-green-500 bg-green-100 p-2 rounded">
                                         <strong>${data}</strong>
