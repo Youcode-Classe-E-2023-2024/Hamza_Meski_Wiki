@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
     <!-- main content -->
-    <main id="manageCategories-index" class="">
+    <main id="manageCategories-index" class="mt-24">
         <!-- left sidebar -->
         <aside id="sidebar"
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">

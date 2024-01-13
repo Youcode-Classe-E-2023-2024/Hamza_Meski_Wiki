@@ -2,7 +2,6 @@
 
     <!-- main content -->
     <main id="posts-index" class="mt-24">
-        <h1 class="text-center">manage posts</h1>
         <!-- left sidebar -->
         <aside id="sidebar"
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">
@@ -20,11 +19,9 @@
                 </ul>
 
                 <ul class="flex flex-col gap-1 mt-2">
-                    <li class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
-                        <a class="w-full flex items-center py-3" href="#">
-                            <i class="fa-solid fa-right-from-bracket text-center px-5"></i>
-                            <span class="pl-1">Logout</span>
-                        </a>
+                    <li class="text-gray-500  hover:text-gray-900">
+                        <span class="pl-1">My posts</span>
+                      
                     </li>
                 </ul>
             </div>

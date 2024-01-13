@@ -74,12 +74,5 @@ if(manageCategoriesIndex){
             ], 
         }); 
 
-        // $('#categoriesTable').css({
-        //     'background-color': 'rgba(128, 0, 128, 0.5)', // Example background color
-        //     'width': '700px', // Example width
-        //     'higth': '500px',
-        //     'display': 'flex', 
-        //     'flex-direction': 'column',
-        // });
     });
 }
