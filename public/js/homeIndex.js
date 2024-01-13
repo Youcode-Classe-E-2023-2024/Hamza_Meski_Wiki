@@ -1,8 +1,13 @@
 /* last articles in home/index */ 
 const homeIndex = document.getElementById('home-index'); 
-if(homeIndex) {
-    console.log(homeIndex)
+const homeFilteredIndex = document.getElementById('home-filtered-index');
+if(homeIndex || homeFilteredIndex) {
+    controll_cards_hight();
+}
+
+function controll_cards_hight() {
     const postContent = document.querySelectorAll('.post_content');
+    console.log(postContent)
     postContent.forEach(el => {
         if(el.textContent.length > 200) {
             el.textContent = el.textContent.slice(0, 200) + ' .....';
@@ -13,7 +18,6 @@ if(homeIndex) {
 }
  
 /* search bar in home/filteredIndex */ 
-const homeFilteredIndex = document.getElementById('home-filtered-index');
 if(homeFilteredIndex) {
     const searchForm = document.getElementById('search-form'); 
     searchForm.addEventListener('submit', function(e) {
@@ -25,7 +29,6 @@ if(homeFilteredIndex) {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             const formData = new FormData(); 
             formData.append('data', JSON.stringify(data));
             fetch(URLROOT + '/home/filteredIndex', {
@@ -34,8 +37,8 @@ if(homeFilteredIndex) {
             })
             .then(res => res.text())
             .then(data => {
-                console.log(data)
                 document.getElementById('search-content').innerHTML = data;
+                controll_cards_hight();
             })
         })
     })
