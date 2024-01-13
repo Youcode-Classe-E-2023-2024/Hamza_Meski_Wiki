@@ -19,15 +19,16 @@ class Home extends Controller {
         $this->view('home/index', $data);
     }
     
-    public function filteredIndex() {
-        $data = $this->postModel->getPosts();
+    public function filteredIndex($data = []) {
+        if(empty($data)) $data = $this->postModel->getPosts();
         $this->view('home/filteredIndex', $data);
     }
 
     public function search() {
-        // title fitler
+        // fitler
         if($_POST['search_by'] == 'title') {
             echo json_encode($this->postModel->getPostsByTitle($_POST['search_input']));
+
         }else if($_POST['search_by'] == 'category') {
             $category = $this->categoryModel->getCategoryByName($_POST['search_input']);
             if(isset($category->id)) {
@@ -36,6 +37,7 @@ class Home extends Controller {
             }else {
                 echo json_encode([]);
             }
+
         }else if($_POST['search_by'] == 'tag') {
             $tag = $this->tagModel->getTagByName($_POST['search_input']);
             if(isset($tag->id)) {
@@ -48,6 +50,7 @@ class Home extends Controller {
             }else{
                 echo json_encode([]);
             }
+
         }
     }
 

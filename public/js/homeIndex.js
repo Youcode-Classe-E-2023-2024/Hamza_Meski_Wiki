@@ -18,13 +18,25 @@ if(homeFilteredIndex) {
     const searchForm = document.getElementById('search-form'); 
     searchForm.addEventListener('submit', function(e) {
         e.preventDefault(); 
-        const formData = new FormData(this); 
+        const formData = new FormData(this)
         fetch(URLROOT + '/home/search', {
             method: 'POST', 
-            body: formData
+            body : formData
         })
-        .then(res => res.text())
-        .then(data => console.log(data));
+        .then(res => res.json())
+        .then(data => {
+            const formData = new FormData(); 
+            formData.append('formData', formData);
+            fetch(URLROOT + '/home/filteredIndex', {
+                method: 'POST', 
+                body: formData
+            })
+            .then(res => res.text())
+            .then(data => console.log(data));
+            // .then(() => {
+            //     location.href = URLROOT + '/home/filteredIndex';
+            // })
+        })
     })
     
 }

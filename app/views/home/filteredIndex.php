@@ -20,6 +20,11 @@
             </svg>
         </button>
     </form>
+    <?php 
+    echo '<pre>'; 
+    print_r($data);
+    echo '</pre>';
+    ?>
     <!-- search -->
     <div class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
       <!--  -->
