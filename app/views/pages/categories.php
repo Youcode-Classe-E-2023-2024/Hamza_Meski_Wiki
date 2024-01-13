@@ -2,7 +2,7 @@
 
 <!-- component -->
 <div class="mt-20">
-  <h1 class="text-center pb-4 font-black mb-20 text-3xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">ALL CATEGORIES</h1>
+  <h1 class="text-center pb-4 font-black mb-20 text-3xl text-blue-500 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">ALL CATEGORIES</h1>
   <div class="lg:px-36 mb-10 sm:mb-0 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <?php foreach($data['categories'] as $category): ?>
           <div class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover">

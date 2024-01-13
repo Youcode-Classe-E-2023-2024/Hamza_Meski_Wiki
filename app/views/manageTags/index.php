@@ -5,22 +5,16 @@
         <!-- left sidebar -->
         <aside id="sidebar"
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">
-            <div class="flex flex-col justify-between h-full">
+            <div class="flex flex-col justify-between h-full border border-blue-500 border-solid">
                 <ul class="flex flex-col gap-1 mt-2">
                     
-                    <li data-modal-target="create-tag" data-modal-toggle="create-tag" class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
+                    <li data-modal-target="create-tag" data-modal-toggle="create-tag" class="text-blue-500 hover:bg-blue-100 hover:text-blue-500">
                         <a class="w-full flex items-center py-3" href="#">
                         <i class="fa-solid fa-folder text-center px-5"></i>
                             <span class="whitespace-nowrap pl-1">Create Tag</span>
                         </a>
                     </li>
           
-                </ul>
-
-                <ul class="flex flex-col gap-1 mt-2">
-                    <li class="text-gray-500  hover:text-gray-900 p-4">
-                        <span class="pl-1">Managing Tags</span>
-                    </li>
                 </ul>
             </div>
         </aside>
