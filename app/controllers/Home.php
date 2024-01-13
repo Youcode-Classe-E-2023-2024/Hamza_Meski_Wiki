@@ -4,12 +4,14 @@ class Home extends Controller {
     public $postModel;
     public $categoryModel;
     public $tagModel; 
+    public $postTagModel;
 
     public function __construct() {
         $this->userModel = $this->model('User');
         $this->postModel = $this->model('Post');
         $this->categoryModel = $this->model('Category');
         $this->tagModel = $this->model('Tag');
+        $this->postTagModel = $this->model('PostTag');
     }
 
     public function index() {
@@ -20,6 +22,29 @@ class Home extends Controller {
     public function filteredIndex() {
         $data = $this->postModel->getPosts();
         $this->view('home/filteredIndex', $data);
+    }
+
+    public function search() {
+        if($_POST['search_by'] == 'title') echo 'title'; 
+        if($_POST['search_by'] == 'category') echo 'category'; 
+        if($_POST['search_by'] == 'tag') {
+            $tag = $this->tagModel->getTagByName($_POST['search_input']);
+            if(isset($tag->id)) {
+                $posts = $this->postTagModel->getPostsByTagId($tag->id);
+                // echo '<pre>'; 
+                // print_r($posts); 
+                // echo '</pre>';
+                $store_comp_posts = [];
+                foreach($posts as $post) {
+                    $store_comp_posts[] = $this->postModel->getPostByPostId($post->post_id);
+                };
+                echo '<pre>'; 
+                print_r($store_comp_posts); 
+                echo '</pre>';
+            }else{
+                echo json_encode([]);
+            }
+        }
     }
 
     public function postSection($postId) {

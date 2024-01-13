@@ -75,4 +75,14 @@ class Tag {
             return false;
         }
     }
+
+    // tag search filter function 
+    public function getTagByName($tag_name) {
+        $this->db->query('SELECT * FROM tags WHERE name = :tag_name'); 
+        $this->db->bind(':tag_name', $tag_name);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
 }

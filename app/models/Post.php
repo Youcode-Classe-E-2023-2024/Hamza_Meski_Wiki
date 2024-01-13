@@ -95,4 +95,30 @@ class Post {
         
         return $this->db->resultSet();
     }
+
+    /* functions to handle search bar */
+    // public function getPostsByTag($tag_name) {
+    //     $this->db->query('SELECT * FROM posts WHERE id = :id'); 
+    //     $this->db->bind(':id', $id);
+
+    //     $row = $this->db->single();
+    //     return $row;
+    // }
+
+    // public function getPostsByCategory($category_name) {
+    //     $this->db->query('SELECT * FROM posts WHERE id = :id'); 
+    //     $this->db->bind(':id', $id);
+
+    //     $row = $this->db->single();
+    //     return $row;
+    // }  
+    
+    // public function getPostsByTitle($title_name) {
+    //     $this->db->query('SELECT * FROM posts WHERE id = :id'); 
+    //     $this->db->bind(':id', $id);
+
+    //     $row = $this->db->single();
+    //     return $row;
+    // }
+
 }

@@ -1,7 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <!-- component -->
-
-<div id="home-index" class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
+<div id="home-filtered-index" class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
   
   <div class="m-10 flex flex-col items-center mx-auto max-w-screen-lg">
     <!-- search bar component -->
