@@ -19,9 +19,22 @@ class Home extends Controller {
         $this->view('home/index', $data);
     }
     
-    public function filteredIndex($data = []) {
-        if(empty($data)) $data = $this->postModel->getPosts();
+    public function filteredIndex() {
+        if(isset($_POST['data'])) {
+            $data = json_decode($_POST['data']);
+        }else {
+            $data = $this->postModel->getPosts();
+        }
         $this->view('home/filteredIndex', $data);
+    }
+    
+    public function dis() {
+        if(isset($_POST['data'])) {
+            $data = json_decode($_POST['data']);
+            echo '<pre>';
+            print_r($data[0]->title);
+            echo '</pre>';
+        }
     }
 
     public function search() {

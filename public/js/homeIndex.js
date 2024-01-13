@@ -25,18 +25,17 @@ if(homeFilteredIndex) {
         })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             const formData = new FormData(); 
-            formData.append('formData', formData);
+            formData.append('data', JSON.stringify(data));
             fetch(URLROOT + '/home/filteredIndex', {
                 method: 'POST', 
                 body: formData
             })
             .then(res => res.text())
-            .then(data => console.log(data));
-            // .then(() => {
-            //     location.href = URLROOT + '/home/filteredIndex';
-            // })
+            .then(data => {
+                document.querySelector('body').innerHTML = data;
+            })
         })
     })
-    
 }
