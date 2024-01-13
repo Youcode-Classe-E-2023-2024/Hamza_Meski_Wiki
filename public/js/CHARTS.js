@@ -67,8 +67,6 @@ if(CHARTS) {
     /************ graph2  **************/
     Promise.all([categoriesPromise, postsPromise])
         .then(([categories, posts]) => {
-            console.log(categories); 
-            console.log(posts);
             const categoryPostCount = {};
             posts.forEach(post => {
                 if (categoryPostCount[post.category_id]) {

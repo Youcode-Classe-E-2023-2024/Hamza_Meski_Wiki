@@ -9,4 +9,9 @@ class Archive extends Controller {
     public function index() {
         $this->view('archive/index');
     }
+
+    public function getPosts() {
+        $posts = $this->postModel->getPosts();
+        echo json_encode($posts);
+    }
 }
