@@ -6,7 +6,7 @@
   <div class="m-10 flex flex-col items-center mx-auto max-w-screen-lg">
      
     <div class="header flex w-full justify-center">
-    <h1 class="text-center pb-4 font-black mb-20 text-3xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">Last Wikies</h1>
+    <h1 class="text-center pb-4 font-black mb-20 text-3xl text-blue-900 before:block before:absolute before:bg-sky-300  relative before:w-1/3 before:h-1 before:bottom-0 before:left-1/3">LAST POSTS</h1>
     </div>
     <div class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
       <!--  -->

@@ -1,7 +1,8 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
     <!-- main content -->
-    <main id="posts-index" class="">
+    <main id="posts-index" class="mt-24">
+        <h1 class="text-center">manage posts</h1>
         <!-- left sidebar -->
         <aside id="sidebar"
             class="w-[60px] lg:w-[240px] h-[calc(100vh-120px)] whitespace-nowrap fixed shadow overflow-x-hidden transition-all duration-500 ease-in-out">
