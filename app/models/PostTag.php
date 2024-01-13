@@ -36,12 +36,12 @@ class PostTag {
 
     // tag search filter function 
     public function getPostsByTagId($tag_id) {
-            $this->db->query('SELECT * FROM posts_tags WHERE tag_id = :tag_id'); 
-            $this->db->bind(':tag_id', $tag_id);
-    
-            $row = $this->db->resultSet();
-    
-            return $row;
-        }
+        $this->db->query('SELECT * FROM posts_tags WHERE tag_id = :tag_id'); 
+        $this->db->bind(':tag_id', $tag_id);
+
+        $row = $this->db->resultSet();
+
+        return $row;
+    }
     
 }

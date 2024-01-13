@@ -25,22 +25,26 @@ class Home extends Controller {
     }
 
     public function search() {
-        if($_POST['search_by'] == 'title') echo 'title'; 
-        if($_POST['search_by'] == 'category') echo 'category'; 
-        if($_POST['search_by'] == 'tag') {
+        // title fitler
+        if($_POST['search_by'] == 'title') {
+            echo json_encode($this->postModel->getPostsByTitle($_POST['search_input']));
+        }else if($_POST['search_by'] == 'category') {
+            $category = $this->categoryModel->getCategoryByName($_POST['search_input']);
+            if(isset($category->id)) {
+                $posts = $this->postModel->getPostsByCategoryId($category->id);
+                echo json_encode($posts);
+            }else {
+                echo json_encode([]);
+            }
+        }else if($_POST['search_by'] == 'tag') {
             $tag = $this->tagModel->getTagByName($_POST['search_input']);
             if(isset($tag->id)) {
                 $posts = $this->postTagModel->getPostsByTagId($tag->id);
-                // echo '<pre>'; 
-                // print_r($posts); 
-                // echo '</pre>';
                 $store_comp_posts = [];
                 foreach($posts as $post) {
                     $store_comp_posts[] = $this->postModel->getPostByPostId($post->post_id);
                 };
-                echo '<pre>'; 
-                print_r($store_comp_posts); 
-                echo '</pre>';
+                echo json_encode($store_comp_posts); 
             }else{
                 echo json_encode([]);
             }

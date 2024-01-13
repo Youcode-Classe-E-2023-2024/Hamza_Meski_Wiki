@@ -96,29 +96,22 @@ class Post {
         return $this->db->resultSet();
     }
 
-    /* functions to handle search bar */
-    // public function getPostsByTag($tag_name) {
-    //     $this->db->query('SELECT * FROM posts WHERE id = :id'); 
-    //     $this->db->bind(':id', $id);
+    // category search filter function 
+    public function getPostsByCategoryId($category_id) {
+        $this->db->query('SELECT * FROM posts WHERE category_id = :category_id'); 
+        $this->db->bind(':category_id', $category_id);
 
-    //     $row = $this->db->single();
-    //     return $row;
-    // }
+        $row = $this->db->resultSet();
 
-    // public function getPostsByCategory($category_name) {
-    //     $this->db->query('SELECT * FROM posts WHERE id = :id'); 
-    //     $this->db->bind(':id', $id);
+        return $row;
+    }
 
-    //     $row = $this->db->single();
-    //     return $row;
-    // }  
-    
-    // public function getPostsByTitle($title_name) {
-    //     $this->db->query('SELECT * FROM posts WHERE id = :id'); 
-    //     $this->db->bind(':id', $id);
+    public function getPostsByTitle($title) {
+        $this->db->query('SELECT * FROM posts WHERE title = :title'); 
+        $this->db->bind(':title', $title);
 
-    //     $row = $this->db->single();
-    //     return $row;
-    // }
+        $row = $this->db->resultSet();
 
+        return $row;
+    }
 }

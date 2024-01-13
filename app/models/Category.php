@@ -72,4 +72,14 @@ class Category {
 
         return $this->db->resultSet();
     }
+
+    // category search filter function 
+    public function getCategoryByName($category_name) {
+        $this->db->query('SELECT * FROM categories WHERE name = :category_name'); 
+        $this->db->bind(':category_name', $category_name);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
 }
