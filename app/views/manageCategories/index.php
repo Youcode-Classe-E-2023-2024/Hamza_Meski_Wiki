@@ -110,7 +110,7 @@
                 </div>
             </div> 
             <!-- flow bite structure end -->
-
+ 
             <table id="categoriesTable" class="h-[500px]">
                 <thead>
                     <tr>
