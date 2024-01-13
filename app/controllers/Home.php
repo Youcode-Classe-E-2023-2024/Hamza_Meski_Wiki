@@ -22,10 +22,11 @@ class Home extends Controller {
     public function filteredIndex() {
         if(isset($_POST['data'])) {
             $data = json_decode($_POST['data']);
+           $this->view('home/searchContent', $data);
         }else {
             $data = $this->postModel->getPosts();
+            $this->view('home/filteredIndex', $data);
         }
-        $this->view('home/filteredIndex', $data);
     }
     
     public function dis() {

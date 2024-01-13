@@ -34,7 +34,8 @@ if(homeFilteredIndex) {
             })
             .then(res => res.text())
             .then(data => {
-                document.querySelector('body').innerHTML = data;
+                console.log(data)
+                document.getElementById('search-content').innerHTML = data;
             })
         })
     })

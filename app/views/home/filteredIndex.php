@@ -20,8 +20,8 @@
             </svg>
         </button>
     </form>
-    <!-- search -->
-    <div class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+    <!--  -->
+    <div id="search-content" class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
       <!--  -->
       <?php for($i = 0; $i < count($data); $i++): ?>
       <div class="bg-white w-full rounded-lg shadow-md flex flex-col transition-all overflow-hidden hover:shadow-2xl">
