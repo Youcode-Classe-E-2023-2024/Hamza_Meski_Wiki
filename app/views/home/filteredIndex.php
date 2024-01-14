@@ -24,6 +24,7 @@
     <div id="search-content" class="grid gap-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
       <!--  -->
       <?php for($i = 0; $i < count($data); $i++): ?>
+      <?php if($data[$i]->status == 0): ?>
       <div class="bg-white w-full rounded-lg shadow-md flex flex-col transition-all overflow-hidden hover:shadow-2xl">
         <div class="  p-6">
 
@@ -45,6 +46,7 @@
           <img src="<?php echo URLROOT; ?>/public/images/<?php echo $data[$i]->image_name ?>" alt="" class="w-full h-48 object-cover">
         </div>
       </div>
+      <?php endif; ?>
       <?php endfor; ?>
       <!--  -->
 
