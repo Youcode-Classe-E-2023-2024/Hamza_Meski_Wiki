@@ -13,7 +13,7 @@
 
                     <li class="text-blue-500 hover:bg-blue-100 hover:text-blue-500">
                         <a class="w-full flex items-center py-3" href="<?php echo URLROOT . '/manageCategories/index'; ?>">
-                        <i class="fa-solid fa-folder text-center px-5"></i>
+                            <i class="fa-solid fa-folder text-center px-5"></i>
                             <span class="whitespace-nowrap pl-1">Manage Categories</span>
                         </a>
                     </li>
@@ -33,14 +33,6 @@
                     </li>
                 </ul>
 
-                <!-- <ul class="flex flex-col gap-1 mt-2">
-                    <li class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
-                        <a class="w-full flex items-center py-3" href="#">
-                            <i class="fa-solid fa-right-from-bracket text-center px-5"></i>
-                            <span class="pl-1">Logout</span>
-                        </a>
-                    </li>
-                </ul> -->
             </div>
         </aside>
 
@@ -62,7 +54,8 @@
                         <h3 class="font-bold">Total Wikis</h3>
                         <p id="total-wikies" class="text-gray-500">65</p>
                     </div>
-                    <i class="fa-solid fa-users p-4 bg-green-200 rounded-md"></i>
+                    <i class="fa-solid fa-file-alt p-4 bg-green-200 rounded-md"></i>
+
                 </div>
 
                 <div class="bg-slate-50 p-5 m-2 flex justify-between items-center shadow border border-blue-500 border-solid rounded-md">
@@ -70,7 +63,8 @@
                         <h3 class="font-bold">Users with more 30 wikis</h3>
                         <p id="more-30" class="text-gray-500">30</p>
                     </div>
-                    <i class="fa-solid fa-users p-4 bg-yellow-200 rounded-md"></i>
+                    <i class="fa-solid fa-chart-bar p-4 bg-orange-200 rounded-md"></i>
+
                 </div>
 
                 <div class="bg-slate-50 p-5 m-2 flex justify-between items-center shadow border border-blue-500 border-solid rounded-md">
@@ -78,7 +72,8 @@
                         <h3 class="font-bold">Archived Posts</h3>
                         <p id="archived-posts" class="text-gray-500">5</p>
                     </div>
-                    <i class="fa-solid fa-users p-4 bg-red-200 rounded-md"></i>
+                    <i class="fa-solid fa-archive p-4 bg-red-200 rounded-md"></i>
+
                 </div>
             </div>
 

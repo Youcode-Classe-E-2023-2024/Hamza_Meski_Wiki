@@ -7,8 +7,8 @@ if(CHARTS) {
     const archivedPosts = document.getElementById('archived-posts');
     fetch(URLROOT + '/users/getUsers').then(res => res.json()).then(data => totalUsers.textContent = data.length) // totalUsers.textContent = data.length
     fetch(URLROOT + '/posts/getPosts').then(res => res.json()).then(data => totalWikies.textContent = data.length) // totalWikies.textContent = data.length
-    // fetch(ROOL + 'users/more30').then(res => res.json()).then(data => more30.textContent = data.length)
-    // fetch(ROOL + 'users/getUsers').then(res => res.json()).then(data => archivedPosts.textContent = data.length)
+    fetch(URLROOT + '/posts/more30').then(res => res.json()).then(data => more30.textContent = data.length)
+    fetch(URLROOT + '/posts/archivedPosts').then(res => res.json()).then(data => archivedPosts.textContent = data.length)
 
     /************ Fetch users and posts data ***************/
     const usersPromise = fetch(URLROOT + '/Users/getUsers').then(response => response.json());
