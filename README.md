@@ -4,7 +4,7 @@ Wiki Platform is an online plateform designed to provide an efficient backend co
 
 ## Project Overview
 
-This system allows administrators to easily manage categories, tags, and wikis, while authors can create, edit, and delete their own content. The frontend focuses on a seamless user interface, featuring simplified registration, an effective search bar, and dynamic displays of the latest wikis and categories for easy navigation.
+This system allows administrator to easily manage categories, tags, and wikis, while authors can create, edit, and delete their own content. The frontend focuses on a seamless user interface, featuring simplified registration, an effective search bar, and dynamic displays of the latest wikis and categories for easy navigation.
 
 The primary goal is to create a space where everyone can collaborate, create, discover, and share wikis in an easy and engaging manner.
 
