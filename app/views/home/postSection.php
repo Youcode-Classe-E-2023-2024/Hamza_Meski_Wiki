@@ -44,7 +44,7 @@
         <strong>Number of published Posts:</strong>
         <div class="flex items-center gap-1">
             <ion-icon name="albums-outline" class="text-2xl"></ion-icon>
-            <span class="mr-1"><?php echo $data['nmb_of_posts_by_author']; ?></span> Post
+            <span class="mr-1"><?php echo $data['nmb_of_posts_by_author'][0]->post_count; ?></span> Post
         </div>
       </div>
     </div>

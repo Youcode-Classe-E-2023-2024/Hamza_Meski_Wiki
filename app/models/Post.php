@@ -83,7 +83,7 @@ class Post {
                         ');
         $this->db->bind(':id', $userId);
 
-        return $this->db->execute();
+        return $this->db->resultSet();
     }
 
     public function postsByEachUser() {
