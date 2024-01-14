@@ -124,5 +124,13 @@ class Posts extends Controller {
         $row = $this->postModel->postsByEachUser();
         echo json_encode($row);
     }
+
+    public function more30() {
+        echo json_encode($this->postModel->more30());
+    }
+
+    public function archivedPosts() {
+        echo json_encode($this->postModel->archivedPosts());
+    }
 }
 ?>

@@ -27,13 +27,7 @@ class Pages extends Controller {
     }
 
     public function categories() {
-        $categories = $this->categoryModel->postsPerCategory();
-        foreach($categories as $category) {
-            $fetched_category = $this->categoryModel->getCategoryById($category->category_id);
-            $category->name = $fetched_category->name;
-            $category->image_name = $fetched_category->image_name;
-            $category->created_at = $fetched_category->created_at;
-        }
+        $categories = $this->categoryModel->get_categories_with_posts_nmb();
         $data = [
             'categories' => $categories
         ];
