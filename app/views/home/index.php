@@ -12,6 +12,7 @@
       <!--  -->
       <?php for($i = 0; $i < 6; $i++): ?>
         <?php if(isset($data[$i])): ?>
+          <?php if($data[$i]->status == 0): ?>
           <div class="bg-white w-full rounded-lg shadow-md flex flex-col transition-all overflow-hidden hover:shadow-2xl">
             <div class="  p-6">
 
@@ -33,7 +34,8 @@
               <img src="<?php echo URLROOT; ?>/public/images/<?php echo $data[$i]->image_name ?>" alt="" class="w-full h-48 object-cover">
             </div>
           </div>
-        <?php endif; ?>
+          <?php endif; ?>
+          <?php endif; ?>
       <?php endfor; ?>
       <!--  -->
 

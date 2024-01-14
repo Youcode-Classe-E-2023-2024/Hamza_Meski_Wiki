@@ -83,7 +83,7 @@ class Post {
                         ');
         $this->db->bind(':id', $userId);
 
-        return $this->db->execute();
+        return $this->db->resultSet();
     }
 
     public function postsByEachUser() {
@@ -126,6 +126,21 @@ class Post {
         }else {
             return false;
         }
+    }
+
+    public function more30() {
+        $this->db->query('SELECT user_id, COUNT(*) AS post_count
+                            FROM posts
+                            GROUP BY user_id
+                            HAVING COUNT(*) > 30;
+        ');
+
+        return $this->db->resultSet();
+    }
+
+    public function archivedPosts() {
+        $this->db->query('SELECT * FROM posts WHERE status = 1'); 
+        return $this->db->resultSet();
     }
 
 }

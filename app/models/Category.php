@@ -64,12 +64,13 @@ class Category {
         }
     }
 
-    public function postsPerCategory() {
-        $this->db->query("  SELECT category_id, COUNT(*) AS post_count
-                            FROM posts
-                            GROUP BY category_id;
+    public function get_categories_with_posts_nmb() {
+        $this->db->query("  SELECT c.id, c.name, c.image_name, COUNT(p.id) AS post_count
+                            FROM categories c
+                            LEFT JOIN posts p ON c.id = p.category_id
+                            GROUP BY c.id, c.name, c.image_name
+                            ORDER BY MAX(c.created_at) DESC;
         ");
-
         return $this->db->resultSet();
     }
 
