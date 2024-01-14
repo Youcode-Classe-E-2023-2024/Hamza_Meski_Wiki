@@ -1,6 +1,6 @@
 # Wiki Platform
 
-Wiki Platform is a content management system designed to provide an efficient backend coupled with a user-friendly frontend, aiming to deliver an exceptional user experience.
+Wiki Platform is an online plateform designed to provide an efficient backend coupled with a user-friendly frontend, aiming to deliver an exceptional user experience.
 
 ## Project Overview
 
