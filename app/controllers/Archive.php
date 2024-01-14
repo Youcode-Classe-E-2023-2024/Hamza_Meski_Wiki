@@ -15,11 +15,11 @@ class Archive extends Controller {
         echo json_encode($posts);
     }
 
-    public function archivePost($postId) {
-        $this->postModel->archivePost($postId);
+    public function archivePost() {
+        $id_option = json_decode($_POST['id_option']);
+        $postId = $id_option[0];
+        $option = $id_option[1];
+        $this->postModel->archivePost($postId, $option);
     }
 
-    public function unarchivePost($postId) {
-        $this->postModel->unarchivePost($postId);
-    }
 }

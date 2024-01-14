@@ -1,75 +1,28 @@
 const archiveIndex = document.getElementById('archive-index'); 
 if(archiveIndex){
     /* functions */ 
-    // to delte post
-    function deleteTag(id){
-        fetch(URLROOT + '/ManageTags/deleteTag/' + id, {
+    function archivePost(id, option) {
+        const formData = new FormData(); 
+        formData.append('id_option', JSON.stringify([id, option]));
+        fetch(URLROOT + '/archive/archivePost', {
             method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json',
-            }
+            body: formData
         })
         .then(res => {
+            // return res.text();
             if(res.status == 200) {
                 console.log(res.status);
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: "Tag deleted successfully",
+                    title: option == 1 ?  "Post archived successfully": "Post unarchived successfully",
                     showConfirmButton: false,
                     timer: 2500
                   });
             }
         })
         .then(() => {
-            location.reload();
-        })
-    }
-
-    function archivePost(id) {
-        fetch(URLROOT + '/archive/archivePost/' + id, {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(res => {
-            if(res.status == 200) {
-                console.log(res.status);
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Post archived successfully",
-                    showConfirmButton: false,
-                    timer: 2500
-                  });
-            }
-        })
-        .then(() => {
-            location.reload();
-        })
-    }
-    function unarchivePost(id) {
-        fetch(URLROOT + '/archive/unarchivePost/' + id, {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(res => {
-            if(res.status == 200) {
-                console.log(res.status);
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Post unarchived successfully",
-                    showConfirmButton: false,
-                    timer: 2500
-                  });
-            }
-        })
-        .then(() => {
-            location.reload();
+            location.reload()
         })
     }
     
@@ -120,8 +73,8 @@ if(archiveIndex){
                     "data": 'id',
                     "render": function(data) {
                         return `<div class="flex space-x-2 justify-center">
-                                    <button onclick="archivePost(${data})" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600">Archive</button>
-                                    <button onclick="unarchivePost(${data})" name="btn" class="bg-green-500 p-2 rounded-md text-white hover:bg-green-600">Unarchive</button>
+                                    <button onclick="archivePost(${data}, 1)" name="btn" class="bg-red-500 p-2 rounded-md text-white hover:bg-red-600">Archive</button>
+                                    <button onclick="archivePost(${data}, 0)" name="btn" class="bg-green-500 p-2 rounded-md text-white hover:bg-green-600">Unarchive</button>
                                 </div>`;
                     }
                 }

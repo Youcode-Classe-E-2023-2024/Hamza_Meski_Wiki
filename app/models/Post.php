@@ -114,9 +114,10 @@ class Post {
         return $row;
     }
 
-    public function archivePost($postId) {
+    public function archivePost($postId, $option) {
         // query
-        $this->db->query('UPDATE posts SET status = 1 WHERE id = :postId');
+        if($option == 1) $this->db->query('UPDATE posts SET status = 1 WHERE id = :postId');
+        else $this->db->query('UPDATE posts SET status = 0 WHERE id = :postId');
         // bind values
         $this->db->bind(':postId', $postId);
         // execute 
@@ -127,16 +128,4 @@ class Post {
         }
     }
 
-    public function unarchivePost($postId) {
-        // query
-        $this->db->query('UPDATE posts SET status = 0 WHERE id = :postId');
-        // bind values
-        $this->db->bind(':postId', $postId);
-        // execute 
-        if($this->db->execute()) {
-            return true;
-        }else {
-            return false;
-        }
-    }
 }
