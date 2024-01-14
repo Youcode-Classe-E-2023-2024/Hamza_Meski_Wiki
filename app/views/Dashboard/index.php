@@ -27,7 +27,7 @@
 
                     <li class="text-blue-500 hover:bg-blue-100 hover:text-blue-500">
                         <a class="w-full flex items-center py-3" href="<?php echo URLROOT . '/archive/index'; ?>">
-                            <i class="fa-solid fa-tag text-center px-5"></i>
+                            <i class="fa-solid fa-archive text-center px-5"></i>
                             <span class="whitespace-nowrap pl-1">Archive Wikies</span>
                         </a>
                     </li>
