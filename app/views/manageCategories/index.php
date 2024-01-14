@@ -17,14 +17,6 @@
           
                 </ul>
 
-                <!-- <ul class="flex flex-col gap-1 mt-2">
-                    <li class="text-gray-500 hover:bg-gray-100 hover:text-gray-900">
-                        <a class="w-full flex items-center py-3" href="#">
-                            <i class="fa-solid fa-right-from-bracket text-center px-5"></i>
-                            <span class="pl-1">Logout</span>
-                        </a>
-                    </li>
-                </ul> -->
             </div>
         </aside>
 
