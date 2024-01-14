@@ -14,4 +14,12 @@ class Archive extends Controller {
         $posts = $this->postModel->getPosts();
         echo json_encode($posts);
     }
+
+    public function archivePost($postId) {
+        $this->postModel->archivePost($postId);
+    }
+
+    public function unarchivePost($postId) {
+        $this->postModel->unarchivePost($postId);
+    }
 }

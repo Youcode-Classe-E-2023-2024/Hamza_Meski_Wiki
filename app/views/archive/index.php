@@ -27,6 +27,7 @@
                     <tr>
                         <th class="py-3 px-4 align-middle">Id of category</th>
                         <th class="py-3 px-4 align-middle">Name of category</th>
+                        <th class="py-3 px-4 align-middle">Status of category</th>
                         <th class="py-3 px-4 align-middle">Action</th>
                     </tr>
                 </thead>

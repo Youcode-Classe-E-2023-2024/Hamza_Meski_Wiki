@@ -47,7 +47,6 @@ class Post {
     }
 
     public function updatePost($postId, $data) {
-        // die('UpdatePost here');
         // query
         $this->db->query('UPDATE posts SET title = :title, content = :content, image_name = :image_name, category_id = :category_id, created_at = CURRENT_TIMESTAMP() WHERE id = :postId');
         // bind values
@@ -113,5 +112,31 @@ class Post {
         $row = $this->db->resultSet();
 
         return $row;
+    }
+
+    public function archivePost($postId) {
+        // query
+        $this->db->query('UPDATE posts SET status = 1 WHERE id = :postId');
+        // bind values
+        $this->db->bind(':postId', $postId);
+        // execute 
+        if($this->db->execute()) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public function unarchivePost($postId) {
+        // query
+        $this->db->query('UPDATE posts SET status = 0 WHERE id = :postId');
+        // bind values
+        $this->db->bind(':postId', $postId);
+        // execute 
+        if($this->db->execute()) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }
