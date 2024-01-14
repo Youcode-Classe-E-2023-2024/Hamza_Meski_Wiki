@@ -1,4 +1,5 @@
 # Wiki Platform
+![wiki](https://github.com/Youcode-Classe-E-2023-2024/Hamza_Meski_Wiki/assets/88968389/1678ea0f-cf3b-4855-86ca-4b2e66a46d90)
 
 Wiki Platform is an online plateform designed to provide an efficient backend coupled with a user-friendly frontend, aiming to deliver an exceptional user experience.
 
